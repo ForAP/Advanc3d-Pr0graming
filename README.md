@@ -14,3 +14,8 @@ _end descriptoin_
  * Clone the git repo
  * extract/unzip the repo
  * 
+
+GENMYMODEL will be used for the UML design - please create an account here:
+https://dashboard.genmymodel.com/
+
+You can do so with your github account
