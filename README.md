@@ -15,6 +15,6 @@ _end descriptoin_
  * extract/unzip the repo
  * 
 
-## (UML) TODO : Find new free software that anables us to do this
+## (UML) TODO : Find new free software that enables us to do this
 
-I believe we should go with a MVC software architecture to start with
+I believe we should go with a MVC software architecture to start with as it seems to suit our system the best and is farily straight forward to implement.
