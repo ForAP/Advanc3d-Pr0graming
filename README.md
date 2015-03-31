@@ -15,10 +15,6 @@ _end descriptoin_
  * extract/unzip the repo
  * 
 
-## GENMYMODEL (UML)
+## (UML) TODO : Find new free software that anables us to do this
 
-will be used for the UML design - please create an account here:
-https://dashboard.genmymodel.com/
-
-You can do so with your github account
 I believe we should go with a MVC software architecture to start with
