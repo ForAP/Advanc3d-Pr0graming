@@ -15,7 +15,10 @@ _end descriptoin_
  * extract/unzip the repo
  * 
 
-GENMYMODEL will be used for the UML design - please create an account here:
+## GENMYMODEL (UML)
+
+will be used for the UML design - please create an account here:
 https://dashboard.genmymodel.com/
 
 You can do so with your github account
+I believe we should go with a MVC software architecture to start with
