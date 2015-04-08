@@ -1,5 +1,7 @@
 __author__ = "O'Keeffe"
 import xml.etree.cElementTree as ET
+import kivy
+kivy.require('1.8.0')
 
 # import necessary libraries
 from kivy.app import App
@@ -9,7 +11,7 @@ from kivy.uix.textinput import TextInput
 from kivy.properties import ObjectProperty
 
 # class for add XML form
-class XMLApp(App):
+class SaveXMLApp(App):
     pass
 
 class MakeXML(BoxLayout):
@@ -27,4 +29,4 @@ class MakeXML(BoxLayout):
 
 # run the MakeXML App with the .run() command
 if __name__ == "__main__":
-    XMLApp().run()
+    SaveXMLApp().run()
