@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE abiword PUBLIC "-//ABISOURCE//DTD AWML 1.0 Strict//EN" "http://www.abisource.com/awml.dtd">
+<abiword template="false" xmlns:ct="http://www.abisource.com/changetracking.dtd" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:math="http://www.w3.org/1998/Math/MathML" xid-max="27" xmlns:dc="http://purl.org/dc/elements/1.1/" fileformat="1.1" xmlns:svg="http://www.w3.org/2000/svg" xmlns:awml="http://www.abisource.com/awml.dtd" xmlns="http://www.abisource.com/awml.dtd" xmlns:xlink="http://www.w3.org/1999/xlink" version="3.0.0" xml:space="preserve" props="dom-dir:ltr; document-footnote-restart-section:0; document-endnote-type:numeric; document-endnote-place-enddoc:1; document-endnote-initial:1; lang:en-AU; document-endnote-restart-section:0; document-footnote-restart-page:0; document-footnote-type:numeric; document-footnote-initial:1; document-endnote-place-endsection:0">
+<!-- ======================================================================== -->
+<!-- This file is an AbiWord document.                                        -->
+<!-- AbiWord is a free, Open Source word processor.                           -->
+<!-- More information about AbiWord is available at http://www.abisource.com/ -->
+<!-- You should not edit this file by hand.                                   -->
+<!-- ======================================================================== -->
+
+<metadata>
+<m key="abiword.date_last_changed">Wed Apr  8 12:32:35 2015
+</m>
+<m key="abiword.generator">AbiWord</m>
+<m key="dc.creator">Robert Merkel</m>
+<m key="dc.date">Wed Apr  8 12:23:20 2015
+</m>
+<m key="dc.format">application/x-abiword</m>
+<m key="dc.publisher">Monash Uni</m>
+</metadata>
+<rdf>
+</rdf>
+<history version="2" edit-time="1284" last-saved="1428460355" uid="869c684e-dd94-11e4-87a8-f03a11389281">
+<version id="2" started="1428459800" uid="83e9dfc0-dd97-11e4-87a8-f03a11389281" auto="0" top-xid="27"/>
+</history>
+<styles>
+<s type="P" name="Normal" followedby="Normal" props="text-indent:0in; orphans:0; margin-top:0pt; margin-left:0pt; font-stretch:normal; line-height:1.0; text-align:left; bgcolor:transparent; lang:en-AU; dom-dir:ltr; margin-bottom:0pt; font-weight:normal; text-decoration:none; font-variant:normal; color:000000; text-position:normal; font-size:10pt; margin-right:0pt; font-style:normal; widows:0; font-family:Gentium"/>
+<s type="P" name="Body Text" basedon="Normal" followedby="Body Text" props="font-family:Gentium; font-size:10pt; dom-dir:ltr; margin-bottom:6pt; lang:en-AU; line-height:1.0; orphans:0; text-align:left; widows:0"/>
+<s type="P" name="Caption" basedon="Normal" followedby="Caption" props="font-family:Gentium; dom-dir:ltr; font-style:italic; margin-top:6pt; lang:en-AU; text-align:left; orphans:0; widows:0; margin-bottom:6pt; line-height:1.0; font-size:12pt"/>
+<s type="P" name="Heading" basedon="Normal" followedby="Body Text" props="font-family:Arial; dom-dir:ltr; margin-top:12pt; lang:en-AU; text-align:left; orphans:0; keep-with-next:yes; widows:0; margin-bottom:6pt; line-height:1.0; font-size:14pt"/>
+<s type="P" name="Index" basedon="Normal" followedby="Index" props="font-family:Gentium; font-size:10pt; dom-dir:ltr; lang:en-AU; line-height:1.0; orphans:0; text-align:left; widows:0"/>
+<s type="P" name="List" basedon="Body Text" followedby="List" props="font-family:Gentium; font-size:10pt; dom-dir:ltr; margin-bottom:6pt; lang:en-AU; line-height:1.0; orphans:0; text-align:left; widows:0"/>
+<s type="P" name="List Paragraph" basedon="Normal" followedby="List Paragraph" props="font-family:Gentium; font-size:10pt; dom-dir:ltr; lang:en-AU; line-height:1.0; orphans:0; text-align:left; widows:0"/>
+<s type="P" name="Table Normal" followedby="Table Normal" props="font-family:Gentium; font-size:10pt; dom-dir:ltr; lang:en-AU; orphans:0; text-align:left; widows:0"/>
+</styles>
+<lists>
+<l id="1000" parentid="0" type="5" start-value="0" list-delim="%L" list-decimal="NULL"/>
+</lists>
+<pagesize pagetype="A4" orientation="portrait" width="8.267717" height="11.692913" units="in" page-scale="1.000000"/>
+<section xid="1" props="page-margin-right:1.2500in; section-restart-value:1; dom-dir:ltr; section-space-after:0.0000in; page-margin-footer:0.5000in; page-margin-header:0.5000in; page-margin-left:1.2500in; page-margin-top:1.0000in; page-margin-bottom:1.0000in">
+<p style="Normal" xid="2" props="text-align:justify; line-height:1.0; dom-dir:ltr; orphans:0; widows:0"><c props="lang:en-AU; font-size:10pt; font-family:Gentium; font-weight:bold">Spike Plan</c></p>
+<p style="Normal" xid="3" props="text-align:justify; line-height:1.0; dom-dir:ltr; orphans:0; widows:0"><c props="lang:en-AU; font-size:10pt; font-family:Gentium; font-weight:bold">Name:</c><c props="lang:en-AU; font-size:10pt; font-family:Gentium">  How does Kivy handle drag-and-drop graphical editing?</c></p>
+<p style="Normal" xid="4" props="text-align:justify; line-height:1.0; dom-dir:ltr; orphans:0; widows:0"></p>
+<p style="Normal" xid="5" props="text-align:left; line-height:1.0; dom-dir:ltr; orphans:0; widows:0"><c props="lang:en-AU; font-size:10pt; font-family:Gentium; font-weight:bold">Context:</c></p>
+<p style="Normal" xid="6" props="text-align:left; line-height:1.0; dom-dir:ltr; orphans:0; widows:0"><c props="lang:en-AU; font-size:10pt; font-family:Gentium; font-style:normal">We want the user to be able to drag and drop elements onto the screen in order to create the turing machine itself. </c></p>
+<p style="Normal" xid="8" props="text-align:left; line-height:1.0; dom-dir:ltr; orphans:0; widows:0"></p>
+<p style="Normal" xid="9" props="text-align:left; line-height:1.0; dom-dir:ltr; orphans:0; widows:0"><c props="lang:en-AU; font-size:10pt; font-family:Gentium; font-weight:bold">Gap:</c></p>
+<p style="Normal" xid="10" props="text-align:left; line-height:1.0; dom-dir:ltr; orphans:0; widows:0"><c>At the present time neither of us know how to handle drag and drop events in Kivy or whether this is possible in Kivy. </c></p>
+<p style="Normal" xid="12" props="text-align:left; line-height:1.0; dom-dir:ltr; orphans:0; widows:0"></p>
+<p style="Normal" xid="13" props="text-align:left; line-height:1.0; dom-dir:ltr; orphans:0; widows:0"><c props="lang:en-AU; font-size:10pt; font-family:Gentium; font-weight:bold">Goals/Deliverables: </c></p>
+<p style="Normal" xid="14" props="text-align:left; line-height:1.0; dom-dir:ltr; orphans:0; widows:0"></p>
+<p level="1" listid="1000" parentid="0" style="Normal" xid="15" props="dom-dir:ltr; list-decimal:NULL; margin-left:0.5000in; start-value:0; text-indent:-0.3000in; text-align:left; orphans:0; list-delim:%L; widows:0; list-style:Bullet List; line-height:1.0; field-font:Liberation Sans"><c props="lang:en-AU; font-size:10pt; font-family:Gentium; list-tag:1001"></c><field type="list_label" xid="24" props="width:0in; font-family:Gentium; display:inline; font-style:normal; font-weight:normal; bgcolor:transparent; lang:en-AU; text-position:normal; text-transform:none; homogeneous:1; color:000000; font-variant:normal; text-decoration:none; font-size:10pt; height:0in; list-style:Bullet List; font-stretch:normal"></field><c props="width:0in; font-family:Gentium; display:inline; font-style:normal; font-weight:normal; bgcolor:transparent; lang:en-AU; text-position:normal; text-transform:none; homogeneous:1; color:000000; font-variant:normal; text-decoration:none; font-size:10pt; height:0in; list-style:Bullet List; font-stretch:normal">	To drag-and-drop a graphical element across the screen</c></p>
+<p style="Normal" xid="25" props="widows:0; margin-left:0pt; orphans:0; text-indent:0in; dom-dir:ltr; line-height:1.0; text-align:left"><c props="width:0in; font-family:Gentium; display:inline; font-style:normal; font-weight:normal; lang:en-AU; homogeneous:1; text-transform:none; text-position:normal; color:000000; bgcolor:transparent; font-variant:normal; text-decoration:none; height:0in; font-size:10pt; font-stretch:normal"></c></p>
+<p style="Normal" xid="27" props="widows:0; margin-left:0pt; orphans:0; text-indent:0in; dom-dir:ltr; line-height:1.0; text-align:left"><c props="width:0in; font-family:Gentium; display:inline; font-style:normal; font-weight:normal; lang:en-AU; homogeneous:1; text-transform:none; text-position:normal; color:000000; bgcolor:transparent; font-variant:normal; text-decoration:none; height:0in; font-size:10pt; font-stretch:normal">An application with a widget that can be moved around the GUI</c></p>
+<p style="Normal" xid="16" props="text-align:left; line-height:1.0; dom-dir:ltr; orphans:0; widows:0"></p>
+<p style="Normal" xid="17" props="text-align:left; line-height:1.0; margin-left:0.5000in; dom-dir:ltr; orphans:0; widows:0"><c props="lang:en-AU; font-size:10pt; font-family:Gentium"> </c></p>
+<p style="Normal" xid="18" props="text-align:left; line-height:1.0; dom-dir:ltr; orphans:0; widows:0"><c props="lang:en-AU; font-size:10pt; font-family:Gentium; font-weight:bold">Planned start date</c><c props="lang:en-AU; font-size:10pt; font-family:Gentium">: 	9/April/2015</c></p>
+<p style="Normal" xid="19" props="text-align:justify; line-height:1.0; dom-dir:ltr; orphans:0; widows:0"><c props="lang:en-AU; font-size:10pt; font-family:Gentium; font-weight:bold">Deadline:</c><c props="lang:en-AU; font-size:10pt; font-family:Gentium"> 		9/April/2015</c></p>
+<p style="Normal" xid="20" props="text-align:left; line-height:1.0; dom-dir:ltr; orphans:0; widows:0"></p>
+<p style="Normal" xid="21" props="text-align:justify; line-height:1.0; dom-dir:ltr; orphans:0; widows:0"><c props="lang:en-AU; font-size:10pt; font-family:Gentium; font-weight:bold">Planning notes: </c></p>
+<p style="Normal" xid="22" props="text-align:justify; line-height:1.0; dom-dir:ltr; orphans:0; widows:0"><c props="lang:en-AU; font-size:10pt; font-family:Gentium">The first problem</c></p>
+<p xid="23"></p>
+</section>
+</abiword>
