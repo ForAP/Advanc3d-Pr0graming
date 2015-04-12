@@ -2,7 +2,7 @@
 For assignments 3 to end
 **This will cover the prototype/proof of concept to the end system with associated documentation. some important documentaion will be hidden/on google docs.**
 
-_end descriptoin_
+_end description_
 
 ## Prerequisites
  * Python 2.7
@@ -18,3 +18,7 @@ _end descriptoin_
 ## (UML) TODO : Find new free software that enables us to do this
 
 I believe we should go with a MVC software architecture to start with as it seems to suit our system the best and is farily straight forward to implement.
+
+## Assignment 3
+
+Trying to implement a click and drag structure for custom widgets similar to the version described in Kivy Interactive Applications as I believe it will be similar for the Turing Machine
