@@ -1,6 +1,6 @@
 # File name: comiccreator.kv
 #:kivy 1.7.0
-<ComicCreator>:
+<MainDnD>:
     AnchorLayout:
         anchor_x: 'left'
         anchor_y: 'top'
@@ -19,8 +19,8 @@
             general_options: _general_options
             tool_box: _tool_box
             size_hint: None,None
-            width: root.width #- _tool_box.width
-            height: root.height #- _general_options.height - _status_bar.height
+            width: root.width - _tool_box.width
+            height: root.height - _general_options.height - _status_bar.height
     AnchorLayout:
         anchor_x: 'center'
         anchor_y: 'bottom'
