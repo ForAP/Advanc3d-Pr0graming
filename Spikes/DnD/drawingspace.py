@@ -1,6 +1,6 @@
 # File name: drawingspace.py
 import kivy
-kivy.require('1.7.0')
+kivy.require('1.8.0')
 from kivy.uix.relativelayout import RelativeLayout
 
 class DrawingSpace(RelativeLayout):

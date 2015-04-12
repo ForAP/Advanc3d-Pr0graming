@@ -1,6 +1,6 @@
 # File name: statusbar.py
 import kivy
-kivy.require('1.7.0')
+kivy.require('1.8.0')
 from kivy.uix.boxlayout import BoxLayout
 from kivy.properties import NumericProperty, ObjectProperty
 
@@ -16,4 +16,3 @@ class StatusBar(BoxLayout):
         elif value + 1 == StatusBar.previous_counter:
             self.msg_label.text = "Widget removed"
         self.__class__.previous_counter = value
-

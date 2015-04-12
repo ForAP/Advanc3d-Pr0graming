@@ -1,6 +1,6 @@
 # File name: dnd.py
 import kivy
-kivy.require('1.7.0')
+kivy.require('1.8.0')
 from kivy.uix.relativelayout import RelativeLayout
 from kivy.graphics import Line
 
