@@ -1,0 +1,101 @@
+{\rtf1\ansi\ansicpg1252\deff0\uc1
+{\fonttbl
+{\f0\fnil\fcharset0\fprq0\fttruetype Helvetica;}
+{\f1\fnil\fcharset0\fprq0\fttruetype Liberation Sans;}
+{\f2\fnil\fcharset0\fprq0\fttruetype Gentium;}
+{\f3\fnil\fcharset0\fprq0\fttruetype Arial;}
+{\f4\fnil\fcharset0\fprq0\fttruetype Courier New;}}
+{\colortbl
+\red0\green0\blue0;
+\red255\green255\blue255;
+\red255\green255\blue255;}
+{\stylesheet
+{\s7\tx1584\sbasedon36\snext35 Chapter Heading;}
+{\s48\fi-431\li720\sbasedon39 Upper Roman List;}
+{\s18\tqc\tx4152\tqc\tx8306\f2\fs20\lang3081\sbasedon35\snext18 Footer;}
+{\s43\fi-431\li720 Star List;}
+{\s24\keepn\sb240\sa120\f3\fs28\lang3081\sbasedon35\snext3 Heading;}
+{\s33\fi-431\li720\sbasedon39 Lower Case List;}
+{\s2\li1440\ri1440\sa120\sbasedon35 Block Text;}
+{\s3\sa120\f2\fs20\lang3081\sbasedon35\snext3 Body Text;}
+{\s46\fi-431\li720 Triangle List;}
+{\s25\sb440\sa60\f1\fs34\b\sbasedon35\snext35 Heading 1;}
+{\s26\sb440\sa60\f1\fs28\b\sbasedon35\snext35 Heading 2;}
+{\s5\fi-431\li720 Bullet List;}
+{\s28\sb440\sa60\f1\fs24\b\sbasedon35\snext35 Heading 4;}
+{\s29\fi-431\li720 Heart List;}
+{\s1\fi-431\li720 Arrowhead List;}
+{\s42\fi-431\li720 Square List;}
+{\s12\qc\sb240\sa120\f1\fs32\b\sbasedon35\snext35 Contents Header;}
+{\s40\f4\sbasedon35 Plain Text;}
+{\s21\fs20\sbasedon35 Footnote Text;}
+{\s27\sb440\sa60\f1\fs24\b\sbasedon35\snext35 Heading 3;}
+{\s39\fi-431\li720 Numbered List;}
+{\s14\fi-431\li720 Diamond List;}
+{\s22\fi-431\li720 Hand List;}
+{\s47\fi-431\li720\sbasedon39 Upper Case List;}
+{\s32\sa120\f2\fs20\lang3081\sbasedon3\snext21 List;}
+{\s23\tqc\tx4320\tqc\tx8640\f2\fs20\lang3081\sbasedon35\snext23 Header;}
+{\s4\fi-431\li720 Box List;}
+{\s35\f2\fs20\lang3081\snext35 Normal;}
+{\s6\sb120\sa120\f2\fs24\i\lang3081\sbasedon35\snext6 Caption;}
+{\s44\f2\fs20\lang3081\snext44 Table Normal;}
+{\s31\f2\fs20\lang3081\sbasedon35\snext31 Index;}
+{\s41\tx1584\sbasedon36\snext35 Section Heading;}
+{\s30\fi-431\li720 Implies List;}
+{\s45\fi-431\li720 Tick List;}
+{\s15\fi-288\li288\sbasedon35 Endnote;}
+{\s13\fi-431\li720 Dashed List;}
+{\s34\fi-431\li720\sbasedon35 Lower Roman List;}
+{\*\cs20\fs20\super Footnote Reference;}
+{\s17\sbasedon35 Endnote Text;}
+{\*\cs16\fs20\super Endnote Reference;}
+{\s36\tx431\sbasedon25\snext35 Numbered Heading 1;}
+{\s37\tx431\sbasedon26\snext35 Numbered Heading 2;}
+{\s38\tx431\sbasedon27\snext35 Numbered Heading 3;}
+{\s19\fi-288\li288\fs20\sbasedon35 Footnote;}
+{\s8\fi-431\li720\sbasedon35\snext35 Contents 1;}
+{\s9\fi-431\li1440\sbasedon35\snext35 Contents 2;}
+{\s10\fi-431\li2160\sbasedon35\snext35 Contents 3;}
+{\s11\fi-431\li2880\sbasedon35\snext35 Contents 4;}}
+{\*\listtable
+{\list\listtemplateid1000\listsimple{\listlevel\levelnfc23\levelstartat0\levelspace0\levelfollow0\fi-431\li720{\leveltext\'01\u8226 ;}{\levelnumbers;}}\listid1000}
+{\list\listtemplateid1001\listsimple{\listlevel\levelnfc23\levelstartat0\levelspace0\levelfollow0\fi-431\li720{\leveltext\'01\u8226 ;}{\levelnumbers;}}\listid1028}}
+{\*\listoverridetable
+{\listoverride\listoverridecount0\listid1000\levelnfc23\levelstartat0\levelspace0\levelfollow0\fi-431\li720{\leveltext\'01\u8226 ;}{\levelnumbers;}\ls1}
+{\listoverride\listoverridecount0\listid1028\levelnfc23\levelstartat0\levelspace0\levelfollow0\fi-431\li720{\leveltext\'01\u8226 ;}{\levelnumbers;}\ls2}}
+
+\kerning0\cf0\ftnbj\fet2\ftnstart1\ftnnar\aftnnar\ftnstart1\aftnstart1\aenddoc\revprop3{\*\rdf}{\info\uc1{\author Robert Merkel}{\company Monash Uni}}\deftab720\viewkind1\paperw11905\paperh16837\margl1440\margr1440\widowctrl
+\sectd\sbknone\colsx360\marglsxn1800\margrsxn1800\pgncont\ltrsect
+\pard\plain\ltrpar\qj\s35\itap0{\s35\f0\fs22\b\lang0{\*\listtag0}\abinodiroverride\ltrch Spike}{\s35\f0\fs22\b\lang3081{\*\listtag0} outcomes}{\s35\f0\fs22\lang3081{\*\listtag0} }{\s35\f0\fs22\b\lang0{\*\listtag0}\par}
+\pard\plain\ltrpar\qj\s35\itap0{\s35\f0\fs22\b\lang3081{\*\listtag0}\abinodiroverride\ltrch Name: }{\s35\f0\fs22\lang3081{\*\listtag0}Will Python/Kivy be able to save XML files?}{\s35\f0\fs22\b\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\qj\s35\itap0{\s35\f0\fs22\b\lang3081{\*\listtag0}\abinodiroverride\ltrch Goals:}{\s35\f0\fs22\b\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\qj\s35\itap0{\s35\f0\fs22\i\lang3081{\*\listtag0}\abinodiroverride\ltrch As in the spike plan}{\s35\f0\fs22\i\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\qj\s35\itap0{\s35\f0\fs22\b\lang3081{\*\listtag0}\abinodiroverride\ltrch Personnel:}{\s35\f0\fs22\b\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\qj\s35\itap0{\s35\f0\fs22\i\lang3081{\*\listtag0}\abinodiroverride\ltrch As in the spike plan}{\s35\f0\fs22\i\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\qj\s35\itap0{\s35\f2\fs20\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\qj\s35\itap0{\s35\f0\fs22\b\lang3081{\*\listtag0}\abinodiroverride\ltrch Technologies, Tools, and Resources used:}{\s35\f0\fs22\b\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\qj\s35\itap0{\s35\f2\fs20\lang3081{\*\listtag0}\par}
+{\listtext\pard\qj\fi-431\li720\bullet 	}\pard\plain{\ltrpar\qj\fi-431\li720\s35{\*\abilist\abilistid1000\abilistparentid0\abilistlevel1\abistartat0{\abifieldfont Liberation Sans}{\abilistdecimal NULL}{\abilistdelim %L}{\abiliststyle Bullet List}}{\*\pn\pnql\pnstart0\pnlvlblt{\pntxtb\bullet}}\ls1\ilvl0\itap0{\s35\f0\fs22\lang3081{\*\listtag0}\abinodiroverride\ltrch xml.etree.elementree documentation from}{\s35\f0\fs20\lang3081{\*\listtag0} }{\s35\f0\fs22\lang3081{\*\listtag0}https://docs.python.org/2/library/xml.etree.elementtree.html}{\s35\f0\fs22\lang3081{\*\listtag1001}\par}
+}{\listtext\pard\qj\fi-431\li720\bullet 	}\pard\plain{\ltrpar\qj\fi-431\li720\s35{\*\abilist\abilistid1000\abilistparentid0\abilistlevel1\abistartat0{\abifieldfont Liberation Sans}{\abilistdecimal NULL}{\abilistdelim %L}{\abiliststyle Bullet List}}{\*\pn\pnql\pnstart0\pnlvlblt{\pntxtb\bullet}}\ls1\ilvl0\itap0{\s35\f0\fs22\lang3081{\*\listtag0}\abinodiroverride\ltrch Chapter 2 of \uc1\u8220\'93}{\s35\f0\fs22\lang3081{\*\listtag0}Creating Apps in Kivy\uc1\u8221\'94 by D}{\s35\f0\fs22\lang3081{\*\listtag0}usty Phillips}{\s35\f0\fs22\lang3081{\*\listtag1002}\par}
+}{\listtext\pard\qj\fi-431\li720\bullet 	}\pard\plain{\ltrpar\qj\fi-431\li720\s35{\*\abilist\abilistid1000\abilistparentid0\abilistlevel1\abistartat0{\abifieldfont Liberation Sans}{\abilistdecimal NULL}{\abilistdelim %L}{\abiliststyle Bullet List}}{\*\pn\pnql\pnstart0\pnlvlblt{\pntxtb\bullet}}\ls1\ilvl0\itap0{\s35\f0\fs22\lang3081{\*\listtag0}\abinodiroverride\ltrch Chapter 1 of \uc1\u8220\'93Kivy: Interactive applications in Python\uc1\u8221\'94 by Roberto Ulloa}{\s35\f0\fs22\lang3081{\*\listtag1003}\par}
+}\pard\plain\ltrpar\qj\s35\itap0{\s35\f2\fs20\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\qj\s35\itap0{\s35\f0\fs22\b\lang3081{\*\listtag0}\abinodiroverride\ltrch Tasks undertaken:}{\s35\f0\fs22\b\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\qj\s35\itap0{\s35\f2\fs20\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\qj\s35\itap0{\s35\f0\fs22\lang3081{\*\listtag0}\abinodiroverride\ltrch I ended up creating a custom widget which was able to receive text input from a user and save it into an XML file in the same directory. It consists of a Button widget and a TextInput widget split 50/50 over the Kivy screen. On the button click the XML file is created in Python.}{\s35\f0\fs22\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\qj\s35\itap0{\s35\f0\fs22\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\qj\s35\itap0{\s35\f0\fs22\b\lang3081{\*\listtag0}\abinodiroverride\ltrch What we found out:}{\s35\f0\fs22\b\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\qj\s35\itap0{\s35\f0\fs22\b\lang3081{\*\listtag0}\par}
+{\listtext\pard\qj\fi-431\li720\bullet 	}\pard\plain{\ltrpar\qj\fi-431\li720\s35{\*\abilist\abilistid1028\abilistparentid0\abilistlevel1\abistartat0{\abifieldfont Liberation Sans}{\abilistdecimal NULL}{\abilistdelim %L}{\abiliststyle Bullet List}}{\*\pn\pnql\pnstart0\pnlvlblt{\pntxtb\bullet}}\ls2\ilvl0\itap0{\s35\f0\fs22\lang3081{\*\listtag0}\abinodiroverride\ltrch The initial part of the App's subclass name has to coincide with the name of the Kivy file. For example, if the definition of the class is class FooApp(App), then the name of the file must be foo.kv and it must be in the same directory of the main file (the one that executes the App's run() method). It must also all be in lower case. This will save you a lot of time.}{\s35\f0\fs22\lang3081{\*\listtag1029}\par}
+}{\listtext\pard\qj\fi-431\li720\bullet 	}\pard\plain{\ltrpar\qj\fi-431\li720\s35{\*\abilist\abilistid1028\abilistparentid0\abilistlevel1\abistartat0{\abifieldfont Liberation Sans}{\abilistdecimal NULL}{\abilistdelim %L}{\abiliststyle Bullet List}}{\*\pn\pnql\pnstart0\pnlvlblt{\pntxtb\bullet}}\ls2\ilvl0\itap0{\s35\f0\fs22\lang3081{\*\listtag0}\abinodiroverride\ltrch ObjectProperty() will carry attributes from widgets to be manipulated in Python}{\s35\f0\fs22\lang3081{\*\listtag1030}\par}
+}{\listtext\pard\fi-431\li720\bullet 	}\pard\plain{\ltrpar\ql\fi-431\li720\s35{\*\abilist\abilistid1028\abilistparentid0\abilistlevel1\abistartat0{\abifieldfont Liberation Sans}{\abilistdecimal NULL}{\abilistdelim %L}{\abiliststyle Bullet List}}{\*\pn\pnql\pnstart0\pnlvlblt{\pntxtb\bullet}}\ls2\ilvl0\itap0{\s35\f0\fs22\lang3081{\*\listtag0}\abinodiroverride\ltrch Kivy is firing events all the time and the the event handler is accessed as a property on the Button object with a prefix of on_ . There are specific types of events for different widgets; for a button, the press event is kicked off by a mouse press or touch event.}{\s35\f0\fs22\lang3081{\*\listtag1032}\par}
+}{\listtext\pard\fi-431\li720\bullet 	}\pard\plain{\ltrpar\ql\fi-431\li720\s35{\*\abilist\abilistid1028\abilistparentid0\abilistlevel1\abistartat0{\abifieldfont Liberation Sans}{\abilistdecimal NULL}{\abilistdelim %L}{\abiliststyle Bullet List}}{\*\pn\pnql\pnstart0\pnlvlblt{\pntxtb\bullet}}\ls2\ilvl0\itap0{\s35\f0\fs22\lang3081{\*\listtag0}\abinodiroverride\ltrch L}{\s35\f0\fs22\lang3081{\*\listtag0}ayout and graphical information should always go in the KV language file. Logic (the calculations and activities that make up a program) should always go in a Python file. Keeping these two types of information separate will save hours in the long-term maintenance of your app.}{\s35\f0\fs22\lang3081{\*\listtag1038}\par}
+}{\listtext\pard\fi-431\li720\bullet 	}\pard\plain{\ltrpar\ql\fi-431\li720\s35{\*\abilist\abilistid1028\abilistparentid0\abilistlevel1\abistartat0{\abifieldfont Liberation Sans}{\abilistdecimal NULL}{\abilistdelim %L}{\abiliststyle Bullet List}}{\*\pn\pnql\pnstart0\pnlvlblt{\pntxtb\bullet}}\ls2\ilvl0\itap0{\s35\f0\fs22\lang3081{\*\listtag0}\abinodiroverride\ltrch The xml.etree.elementree API works as a function of cascading elements from the root. You have to create the elements one by one then add them into the tree.}{\s35\f0\fs22\lang3081{\*\listtag1045}\par}
+}\pard\plain\ltrpar\qj\s35\itap0{\s35\f0\fs22\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\qj\s35\itap0{\s35\f2\fs20\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\qj\s35\itap0{\s35\f0\fs22\b\lang3081{\*\listtag0}\abinodiroverride\ltrch Open issues/risks:}{\s35\f0\fs22\b\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\qj\sa120\s3\itap0{\s3\f0\fs22\lang3081{\*\listtag0}\abinodiroverride\ltrch Using the XPath functions in }{\s3\f0\fs22\lang3081{\*\listtag0}xml.etree.elementree API}{\s3\f0\fs22\lang3081{\*\listtag0} to add elements is still unknown.}{\s3\f0\fs22\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\qj\sa120\s3\itap0{\s3\f0\fs22\b\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\qj\sa120\s3\itap0{\s3\f0\fs22\b\lang3081{\*\listtag0}\abinodiroverride\ltrch Recommendations:}{\s3\f0\fs22\b\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\qj\sa120\s3\itap0{\s3\f0\fs22\lang3081{\*\listtag0}\abinodiroverride\ltrch We will have to soft code in the elements of the XML tree for the Turing machine implementation.  So it might be best to implement this as it\uc1\u8217\'92s own function to avoid a lot of code duplication. That or manually create a template of the XML file every time a new machine is to be built and use the XPath functions to add in the relevant data.}{\s3\f0\fs22\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\qj\itap0{\f2\fs20\lang3081{\*\listtag0}\par}}

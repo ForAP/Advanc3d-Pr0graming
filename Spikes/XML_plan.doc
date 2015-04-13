@@ -1,0 +1,87 @@
+{\rtf1\ansi\ansicpg1252\deff0\uc1
+{\fonttbl
+{\f0\fnil\fcharset0\fprq0\fttruetype Gentium;}
+{\f1\fnil\fcharset0\fprq0\fttruetype Liberation Sans;}
+{\f2\fnil\fcharset0\fprq0\fttruetype Arial;}
+{\f3\fnil\fcharset0\fprq0\fttruetype Courier New;}}
+{\colortbl
+\red0\green0\blue0;
+\red255\green255\blue255;
+\red255\green255\blue255;}
+{\stylesheet
+{\s7\tx1584\sbasedon35\snext34 Chapter Heading;}
+{\s47\fi-431\li720\sbasedon38 Upper Roman List;}
+{\s42\fi-431\li720 Star List;}
+{\s22\keepn\sb240\sa120\f2\fs28\lang3081\sbasedon34\snext3 Heading;}
+{\s32\fi-431\li720\sbasedon38 Lower Case List;}
+{\s2\li1440\ri1440\sa120\sbasedon34 Block Text;}
+{\s3\sa120\f0\fs20\lang3081\sbasedon34\snext3 Body Text;}
+{\s45\fi-431\li720 Triangle List;}
+{\s46\fi-431\li720\sbasedon38 Upper Case List;}
+{\s24\sb440\sa60\f1\fs28\b\sbasedon34\snext34 Heading 2;}
+{\s5\fi-431\li720 Bullet List;}
+{\s26\sb440\sa60\f1\fs24\b\sbasedon34\snext34 Heading 4;}
+{\s27\fi-431\li720 Heart List;}
+{\s1\fi-431\li720 Arrowhead List;}
+{\s41\fi-431\li720 Square List;}
+{\s43\f0\fs20\lang3081\snext43 Table Normal;}
+{\s23\sb440\sa60\f1\fs34\b\sbasedon34\snext34 Heading 1;}
+{\s20\fs20\sbasedon34 Footnote Text;}
+{\s25\sb440\sa60\f1\fs24\b\sbasedon34\snext34 Heading 3;}
+{\s38\fi-431\li720 Numbered List;}
+{\s14\fi-431\li720 Diamond List;}
+{\s21\fi-431\li720 Hand List;}
+{\s30\sa120\f0\fs20\lang3081\sbasedon3\snext30 List;}
+{\s4\fi-431\li720 Box List;}
+{\s34\f0\fs20\lang3081\snext34 Normal;}
+{\s6\sb120\sa120\f0\fs24\i\lang3081\sbasedon34\snext6 Caption;}
+{\s12\qc\sb240\sa120\f1\fs32\b\sbasedon34\snext34 Contents Header;}
+{\s39\f3\sbasedon34 Plain Text;}
+{\s29\f0\fs20\lang3081\sbasedon34\snext29 Index;}
+{\s40\tx1584\sbasedon35\snext34 Section Heading;}
+{\s28\fi-431\li720 Implies List;}
+{\s44\fi-431\li720 Tick List;}
+{\s31\f0\fs20\lang3081\sbasedon34\snext31 List Paragraph;}
+{\s15\fi-288\li288\sbasedon34 Endnote;}
+{\s13\fi-431\li720 Dashed List;}
+{\s33\fi-431\li720\sbasedon34 Lower Roman List;}
+{\*\cs19\fs20\super Footnote Reference;}
+{\s17\sbasedon34 Endnote Text;}
+{\*\cs16\fs20\super Endnote Reference;}
+{\s35\tx431\sbasedon23\snext34 Numbered Heading 1;}
+{\s36\tx431\sbasedon24\snext34 Numbered Heading 2;}
+{\s37\tx431\sbasedon25\snext34 Numbered Heading 3;}
+{\s18\fi-288\li288\fs20\sbasedon34 Footnote;}
+{\s8\fi-431\li720\sbasedon34\snext34 Contents 1;}
+{\s9\fi-431\li1440\sbasedon34\snext34 Contents 2;}
+{\s10\fi-431\li2160\sbasedon34\snext34 Contents 3;}
+{\s11\fi-431\li2880\sbasedon34\snext34 Contents 4;}}
+{\*\listtable
+{\list\listtemplateid1000\listsimple{\listlevel\levelnfc23\levelstartat0\levelspace0\levelfollow0\fi-431\li720{\leveltext\'01\u8226 ;}{\levelnumbers;}}\listid1000}}
+{\*\listoverridetable
+{\listoverride\listoverridecount0\listid1000\levelnfc23\levelstartat0\levelspace0\levelfollow0\fi-431\li720{\leveltext\'01\u8226 ;}{\levelnumbers;}\ls1}}
+
+\kerning0\cf0\ftnbj\fet2\ftnstart1\ftnnar\aftnnar\ftnstart1\aftnstart1\aenddoc\revprop3{\*\rdf}{\info\uc1{\author Robert Merkel}{\company Monash Uni}}\deftab720\viewkind1\paperw11905\paperh16837\margl1440\margr1440\widowctrl
+\sectd\sbknone\colsx360\marglsxn1800\margrsxn1800\pgncont\ltrsect
+\pard\plain\ltrpar\qj\s34\itap0{\s34\f0\fs20\b\lang3081{\*\listtag0}\abinodiroverride\ltrch Spike Plan}{\s34\f0\fs20\b\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s34\itap0{\s34\f0\fs20\b\lang3081{\*\listtag0}\abinodiroverride\ltrch Name:}{\s34\f0\fs20\lang3081{\*\listtag0} Will }{\s34\f0\fs20\lang3081{\*\listtag0}Python/Kivy}{\s34\f0\fs20\lang3081{\*\listtag0} be able to}{\s34\f0\fs20\lang3081{\*\listtag0} save XML files}{\s34\f0\fs20\lang3081{\*\listtag0}?}{\s34\f0\fs20\b\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\qj\s34\itap0{\s34\f0\fs20\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s34\itap0{\s34\f0\fs20\b\lang3081{\*\listtag0}\abinodiroverride\ltrch Context:}{\s34\f0\fs20\b\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s34\itap0{\s34\f0\fs20\lang3081{\*\listtag0}\abinodiroverride\ltrch Parsing and building XML files in the back-end of the application is critical for being able to implement the actual turing machine in our intended design. Knowing whether Python and Kivy can communicate effectively to build an XML file is thus of utmost importance and will be constantly used throughout the application.}{\s34\f0\fs20\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s34\itap0{\s34\f0\fs20\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s34\itap0{\s34\f0\fs20\b\lang3081{\*\listtag0}\abinodiroverride\ltrch Gap:}{\s34\f0\fs20\b\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s34\itap0{\s34\f0\fs20\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s34\itap0{\s34\f0\fs20\lang3081{\*\listtag0}\abinodiroverride\ltrch This spike is being conducted in order to mitigate the risk that Python/Kivy will not be able to implement our XML design. It is crucial that we are able to save XML files by receiving user input from inside Kivy to create the user-defined turing machine.}{\s34\f0\fs20\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s34\itap0{\s34\f0\fs20\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s34\itap0{\s34\f0\fs20\b\lang3081{\*\listtag0}\abinodiroverride\ltrch Goals/Deliverables: }{\s34\f0\fs20\b\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s34\itap0{\s34\f0\fs20\lang3081{\*\listtag0}\par}
+{\listtext\pard\fi-431\li720\bullet 	}\pard\plain{\ltrpar\ql\fi-431\li720\s34{\*\abilist\abilistid1000\abilistparentid0\abilistlevel1\abistartat0{\abifieldfont Liberation Sans}{\abilistdecimal NULL}{\abilistdelim %L}{\abiliststyle Bullet List}}{\*\pn\pnql\pnstart0\pnlvlblt{\pntxtb\bullet}}\ls1\ilvl0\itap0{\s34\f0\fs20\lang3081{\*\listtag0}\abinodiroverride\ltrch To be able to receive user input from inside Kivy}{\s34\f0\fs20\lang3081{\*\listtag1001}\par}
+}{\listtext\pard\fi-431\li720\bullet 	}\pard\plain{\ltrpar\ql\fi-431\li720\s34{\*\abilist\abilistid1000\abilistlevel1\abistartat0{\abifieldfont Liberation Sans}{\abilistdecimal NULL}{\abilistdelim %L}{\abiliststyle Bullet List}}{\*\pn\pnql\pnstart0\pnlvlblt{\pntxtb\bullet}}\ls1\ilvl0\itap0{\s34\f0\fs20\lang3081{\*\listtag0}\abinodiroverride\ltrch To be able to save this user input as an XML file}{\s34\f0\fs20\lang3081{\*\listtag1002}\par}
+}\pard\plain\ltrpar\ql\s34\itap0{\s34\f0\fs20\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s34\itap0{\s34\f0\fs20\lang3081{\*\listtag0}\abinodiroverride\ltrch By the end of the spike we will deliver a Kivy application which fulfills these two goals.}{\s34\f0\fs20\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\li720\s34\itap0{\s34\f0\fs20\lang3081{\*\listtag0}\abinodiroverride\ltrch  }{\s34\f0\fs20\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s34\itap0{\s34\f0\fs20\b\lang3081{\*\listtag0}\abinodiroverride\ltrch Planned start date}{\s34\f0\fs20\lang3081{\*\listtag0}: \tab 8/April/2015}{\s34\f0\fs20\b\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\qj\s34\itap0{\s34\f0\fs20\b\lang3081{\*\listtag0}\abinodiroverride\ltrch Deadline:}{\s34\f0\fs20\lang3081{\*\listtag0} \tab \tab 9/April/2015}{\s34\f0\fs20\b\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s34\itap0{\s34\f0\fs20\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\qj\s34\itap0{\s34\f0\fs20\b\lang3081{\*\listtag0}\abinodiroverride\ltrch Planning notes: }{\s34\f0\fs20\b\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s34\itap0{\s34\f0\fs20\lang3081{\*\listtag0}\abinodiroverride\ltrch I plan to use the }{\s34\f0\fs20\lang3081{\*\listtag0}xml.etree.elementtree}{\s34\f0\fs20\lang3081{\*\listtag0} package to handle the XML parsing. The rest will be sourced from Kivy 1.9.0-Dev Documentation. David will take entire responsibility for the spike.}{\s34\f0\fs20\lang3081{\*\listtag0}\par}}

@@ -1,0 +1,93 @@
+{\rtf1\ansi\ansicpg1252\deff0\uc1
+{\fonttbl
+{\f0\fnil\fcharset0\fprq0\fttruetype FreeSerif;}
+{\f1\fnil\fcharset0\fprq0\fttruetype Liberation Sans;}
+{\f2\fnil\fcharset0\fprq0\fttruetype Gentium;}
+{\f3\fnil\fcharset0\fprq0\fttruetype Arial;}
+{\f4\fnil\fcharset0\fprq0\fttruetype Courier New;}}
+{\colortbl
+\red0\green0\blue0;
+\red255\green255\blue255;
+\red255\green255\blue255;}
+{\stylesheet
+{\s7\tx1584\sbasedon37\snext36 Chapter Heading;}
+{\s49\fi-431\li720\sbasedon40 Upper Roman List;}
+{\s18\tqc\tx4151\tqc\tx8306\f2\fs20\lang3081\sbasedon36 Footer;}
+{\s44\fi-431\li720 Star List;}
+{\s24\keepn\sb240\sa120\f3\fs28\lang3081\sbasedon36\snext3 Heading;}
+{\s34\fi-431\li720\sbasedon40 Lower Case List;}
+{\s2\li1440\ri1440\sa120\sbasedon36 Block Text;}
+{\s3\sa120\f2\fs20\lang3081\sbasedon36\snext3 Body Text;}
+{\s47\fi-431\li720 Triangle List;}
+{\s25\sb440\sa60\f1\fs34\b\sbasedon36\snext36 Heading 1;}
+{\s26\sb440\sa60\f1\fs28\b\sbasedon36\snext36 Heading 2;}
+{\s5\fi-431\li720 Bullet List;}
+{\s28\sb440\sa60\f1\fs24\b\sbasedon36\snext36 Heading 4;}
+{\s29\fi-431\li720 Heart List;}
+{\s1\fi-431\li720 Arrowhead List;}
+{\s43\fi-431\li720 Square List;}
+{\s12\qc\sb240\sa120\f1\fs32\b\sbasedon36\snext36 Contents Header;}
+{\s41\f4\sbasedon36 Plain Text;}
+{\s21\fs20\sbasedon36 Footnote Text;}
+{\s27\sb440\sa60\f1\fs24\b\sbasedon36\snext36 Heading 3;}
+{\s40\fi-431\li720 Numbered List;}
+{\s14\fi-431\li720 Diamond List;}
+{\s22\fi-431\li720 Hand List;}
+{\s48\fi-431\li720\sbasedon40 Upper Case List;}
+{\s32\sa120\f2\fs20\lang3081\sbasedon3\snext32 List;}
+{\s23\tqc\tx4320\tqc\tx8640\f2\fs20\lang3081\sbasedon36 Header;}
+{\s4\fi-431\li720 Box List;}
+{\s36\f2\fs20\lang3081\snext36 Normal;}
+{\s6\sb120\sa120\f2\fs24\i\lang3081\sbasedon36\snext6 Caption;}
+{\s45\f2\fs20\lang3081\snext45 Table Normal;}
+{\s31\f2\fs20\lang3081\sbasedon36\snext31 Index;}
+{\s42\tx1584\sbasedon37\snext36 Section Heading;}
+{\s30\fi-431\li720 Implies List;}
+{\s46\fi-431\li720 Tick List;}
+{\s33\f2\fs20\lang3081\sbasedon36\snext33 List Paragraph;}
+{\s15\fi-288\li288\sbasedon36 Endnote;}
+{\s13\fi-431\li720 Dashed List;}
+{\s35\fi-431\li720\sbasedon36 Lower Roman List;}
+{\*\cs20\fs20\super Footnote Reference;}
+{\s17\sbasedon36 Endnote Text;}
+{\*\cs16\fs20\super Endnote Reference;}
+{\s37\tx431\sbasedon25\snext36 Numbered Heading 1;}
+{\s38\tx431\sbasedon26\snext36 Numbered Heading 2;}
+{\s39\tx431\sbasedon27\snext36 Numbered Heading 3;}
+{\s19\fi-288\li288\fs20\sbasedon36 Footnote;}
+{\s8\fi-431\li720\sbasedon36\snext36 Contents 1;}
+{\s9\fi-431\li1440\sbasedon36\snext36 Contents 2;}
+{\s10\fi-431\li2160\sbasedon36\snext36 Contents 3;}
+{\s11\fi-431\li2880\sbasedon36\snext36 Contents 4;}}
+{\*\listtable
+{\list\listtemplateid1000\listsimple{\listlevel\levelnfc23\levelstartat0\levelspace0\levelfollow0\fi-431\li720{\leveltext\'01\u8226 ;}{\levelnumbers;}}\listid1000}}
+{\*\listoverridetable
+{\listoverride\listoverridecount0\listid1000\levelnfc23\levelstartat0\levelspace0\levelfollow0\fi-431\li720{\leveltext\'01\u8226 ;}{\levelnumbers;}\ls1}}
+
+\kerning0\cf0\ftnbj\fet2\ftnstart1\ftnnar\aftnnar\ftnstart1\aftnstart1\aenddoc\revprop3{\*\rdf}{\info\uc1{\author Robert Merkel}{\company Monash Uni}}\deftab720\viewkind1\paperw11905\paperh16837\margl1440\margr1440\widowctrl
+\sectd\sbknone\colsx360\marglsxn1800\margrsxn1800\pgncont\ltrsect
+\pard\plain\ltrpar\qj\s36\itap0{\s36\f0\fs20\b\lang3081{\*\listtag0}\abinodiroverride\ltrch Spike Plan}{\s36\f0\fs20\b\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\qj\s36\itap0{\s36\f0\fs20\b\lang3081{\*\listtag0}\abinodiroverride\ltrch Name:}{\s36\f0\fs20\lang3081{\*\listtag0}  How does Kivy handle drag-and-drop graphical editing?}{\s36\f0\fs20\b\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\qj\s36\itap0{\s36\f0\fs20\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s36\itap0{\s36\f0\fs20\b\lang3081{\*\listtag0}\abinodiroverride\ltrch Context:}{\s36\f0\fs20\b\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s36\itap0{\s36\f0\fs20\lang3081{\*\listtag0}\abinodiroverride\ltrch We want the user to be able to drag and drop elements onto the screen in order to create the Turng machine itself. }{\s36\f0\fs20\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s36\itap0{\s36\f0\fs20\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s36\itap0{\s36\f0\fs20\b\lang3081{\*\listtag0}\abinodiroverride\ltrch Gap:}{\s36\f0\fs20\b\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s36\itap0{\s36\f0\fs20\lang3081{\*\listtag0}\abinodiroverride\ltrch At the present time neither of us know how to handle drag and drop events in Kivy or whether this is possible in Kivy. }{\s36\f0\fs20\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s36\itap0{\s36\f0\fs20\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s36\itap0{\s36\f0\fs20\b\lang3081{\*\listtag0}\abinodiroverride\ltrch Goals/Deliverables: }{\s36\f0\fs20\b\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s36\itap0{\s36\f0\fs20\lang3081{\*\listtag0}\par}
+{\listtext\pard\fi-431\li720\bullet 	}\pard\plain{\ltrpar\ql\fi-431\li720\s36{\*\abilist\abilistid1000\abilistparentid0\abilistlevel1\abistartat0{\abifieldfont Liberation Sans}{\abilistdecimal NULL}{\abilistdelim %L}{\abiliststyle Bullet List}}{\*\pn\pnql\pnstart0\pnlvlblt{\pntxtb\bullet}}\ls1\ilvl0\itap0{\s36\f0\fs20\lang3081{\*\listtag0}\abinodiroverride\ltrch To drag-and-drop a graphical element across the screen}{\s36\f0\fs20\lang3081{\*\listtag1001}\par}
+}{\listtext\pard\fi-431\li720\bullet 	}\pard\plain{\ltrpar\ql\fi-431\li720\s36{\*\abilist\abilistid1000\abilistparentid0\abilistlevel1\abistartat0{\abifieldfont Liberation Sans}{\abilistdecimal NULL}{\abilistdelim %L}{\abiliststyle Bullet List}}{\*\pn\pnql\pnstart0\pnlvlblt{\pntxtb\bullet}}\ls1\ilvl0\itap0{\s36\f0\fs20\lang3081{\*\listtag0}\abinodiroverride\ltrch To create a draggable widget}{\s36\f0\fs20\lang3081{\*\listtag1001}\par}
+}{\listtext\pard\fi-431\li720\bullet 	}\pard\plain{\ltrpar\ql\fi-431\li720\s36{\*\abilist\abilistid1000\abilistparentid0\abilistlevel1\abistartat0{\abifieldfont Liberation Sans}{\abilistdecimal NULL}{\abilistdelim %L}{\abiliststyle Bullet List}}{\*\pn\pnql\pnstart0\pnlvlblt{\pntxtb\bullet}}\ls1\ilvl0\itap0{\s36\f0\fs20\lang3081{\*\listtag0}\abinodiroverride\ltrch To be able to drag and drop multiple widgets simultaneously}{\s36\f0\fs20\lang3081{\*\listtag1003}\par}
+}{\listtext\pard\fi-431\li720\bullet 	}\pard\plain{\ltrpar\ql\fi-431\li720\s36{\*\abilist\abilistid1000\abilistparentid0\abilistlevel1\abistartat0{\abifieldfont Liberation Sans}{\abilistdecimal NULL}{\abilistdelim %L}{\abiliststyle Bullet List}}{\*\pn\pnql\pnstart0\pnlvlblt{\pntxtb\bullet}}\ls1\ilvl0\itap0{\s36\f0\fs20\lang3081{\*\listtag0}\abinodiroverride\ltrch To clear the screen of a widget}{\s36\f0\fs20\lang3081{\*\listtag1004}\par}
+}\pard\plain\ltrpar\ql\s36\itap0{\s36\f0\fs20\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s36\itap0{\s36\f0\fs20\lang3081{\*\listtag0}\abinodiroverride\ltrch An application with }{\s36\f0\fs20\lang3081{\*\listtag0}that can create and remove widgets}{\s36\f0\fs20\lang3081{\*\listtag0} that can be moved around the GUI by user input}{\s36\f0\fs20\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s36\itap0{\s36\f0\fs20\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\li720\s36\itap0{\s36\f0\fs20\lang3081{\*\listtag0}\abinodiroverride\ltrch  }{\s36\f0\fs20\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s36\itap0{\s36\f0\fs20\b\lang3081{\*\listtag0}\abinodiroverride\ltrch Planned start date}{\s36\f0\fs20\lang3081{\*\listtag0}: \tab 9/April/2015}{\s36\f0\fs20\b\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\qj\s36\itap0{\s36\f0\fs20\b\lang3081{\*\listtag0}\abinodiroverride\ltrch Deadline:}{\s36\f0\fs20\lang3081{\*\listtag0} \tab \tab 12/April/2015}{\s36\f0\fs20\b\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s36\itap0{\s36\f0\fs20\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\qj\s36\itap0{\s36\f0\fs20\b\lang3081{\*\listtag0}\abinodiroverride\ltrch Planning notes: }{\s36\f0\fs20\b\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\qj\s36\itap0{\s36\f0\fs20\lang3081{\*\listtag0}\abinodiroverride\ltrch The first problem will how to handle event driven on_touch movements in Kivy. Then how to be able to use this to move a widget around the screen. I will look through }{\s36\f0\fs20\lang3081{\*\listtag0}\uc1\u8220\'93Creating Apps in Kivy\uc1\u8221\'94 by Dusty Phillips and}{\s36\f0\fs20\lang3081{\*\listtag0} \uc1\u8220\'93Kivy: Interactive applications in Python\uc1\u8221\'94 by Roberto Ulloa}{\s36\f0\fs20\lang3081{\*\listtag0} for examples of such event driven code. David will take entire responsibility for this spike.}{\s36\f0\fs20\lang3081{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\itap0{\fs22\lang3081{\*\listtag0}\par}}
