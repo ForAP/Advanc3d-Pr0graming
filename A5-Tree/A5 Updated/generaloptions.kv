@@ -1,0 +1,55 @@
+# File name: generaloptions.kv
+#:kivy 1.7.0
+#:import generaloptions generaloptions
+<GeneralOptions>:
+    orientation: 'horizontal'
+    padding: 2
+    Button:
+        text: 'Create new TM'
+        on_press: root.newTM('', '', [], '', '')
+    Button:
+        text: 'Set Initial Tape'
+        on_press: root.get_caption(*args)
+    Button:
+        text: 'Load TM'
+        on_press: root.set_state(*args)
+    Button:
+        text: 'Save TM'
+    Button:
+        text: 'Clear TM'
+        on_press: root.clear(*args)
+    Button:
+        text: 'Remove State'
+        on_release: root.remove(*args)
+    ToggleButton:
+        text: 'Group'
+        on_state: root.group(*args)
+
+<TapePopup>:
+    id: _tape_popup
+    size_hint: .5, .5
+    auto_dismiss: False
+    title: 'Set Initial Tape here'
+    TextInput:
+        id: user_input_initialtape
+        multiline: False
+        on_text_validate: root.get_caption(*args), root.dismiss()
+        on_focus: user_input_initialtape.background_color=[0.8,1,1,1]
+
+<AlphabetPopup>:
+    id: _alphabet_popup
+    size_hint: .5, .5
+    auto_dismiss: False
+    title: 'Set Alphabet Here'
+    TextInput:
+        id: user_input_initialtape
+        multiline: False
+        on_text_validate: root.dismiss()
+        on_focus: user_input_initialtape.background_color=[0.8,1,1,1]
+
+
+
+        #     Popup(title="Enter text here",
+        #           content=TextInput(focus=True),
+        #           size_hint=(0.6, 0.6),
+        #           on_dismiss=self.set_caption).open()

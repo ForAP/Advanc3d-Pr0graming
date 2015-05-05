@@ -5,6 +5,7 @@ import math
 from kivy.uix.togglebutton import ToggleButton
 from kivy.graphics import Line
 from turingwidgets import StickMan, DraggableWidget
+from state import State
 
 class ToolButton(ToggleButton):
     def on_touch_down(self, touch):
@@ -22,6 +23,8 @@ class ToolStickman(ToolButton):
     def draw(self, ds, x, y):
         sm = StickMan(width=48, height=48)
         sm.center = (x,y)
+        state = State()
+        self.parent.general_options.add_state(state)
         ds.add_widget(sm)
 
 class ToolFigure(ToolButton):

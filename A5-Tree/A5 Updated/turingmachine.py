@@ -14,14 +14,14 @@ from tape import Tape
 
 # experimental code, commented out.
 ##class noTransition(Exception):
-##    '''Class to represent a 
+##    '''Class to represent a
 ##    def __init__(self, state, symbol, tape):
 ##        self.state=state
 ##        self.symbol=symbol
-        
+
 class TuringMachine:
     '''Class to represent a Turing machine'''
-    
+
     def __init__(self, alphabet, initialstate, initialtape, finalstates, blank):
         '''Construct a Turing machine
 
@@ -39,14 +39,14 @@ class TuringMachine:
         self.currentstate = self.initialstate
         self.tape = Tape(initialtape, blank)
         self.finalstates = finalstates
-        
-    def addstate(self,statename, state):
+
+    def addstate(self, statename, state):
         '''Add a state to the TM
         Args:
             statename(str) : name of the state
             state(State) : the state
         '''
-        
+
         self.states[statename] = state
 
     def getstate(self):
@@ -104,8 +104,8 @@ class TuringMachine:
             print "halted with answer yes"
         else:
             print "halted with answer no"
-            
-            
+
+
 def parseTuringMachine(infile):
     '''Parses a Turing machine from an XML file
 
@@ -117,7 +117,7 @@ def parseTuringMachine(infile):
     ep = ET.parse(infile)
     tm = ep.getroot()
   #  tm = etree.find('turingmachine')
-    
+
     alpha=tm.find("alphabet").text
     tape=tm.find("initialtape").text
     blank=tm.find("blank").attrib['char']
@@ -129,7 +129,7 @@ def parseTuringMachine(infile):
         finalstates.add(state.attrib['name'])
 
     tmobj = TuringMachine(alpha,initialstate, tape, finalstates, blank)
-    
+
     states = tm.findall("states/state")
 
     for state in states:
@@ -142,8 +142,8 @@ def parseTuringMachine(infile):
                                     transition.attrib['newstate'],
                                     transition.attrib['move'])
         tmobj.addstate(statename, stateobj)
-        
-    
+
+
     return tmobj
 
 def run_turing(filename):
@@ -154,6 +154,6 @@ def run_turing(filename):
     '''
     tm = parseTuringMachine(filename)
     tm.runtohalt()
-    
+
 if __name__ == "__main__":
     run_turing(sys.argv[1])
