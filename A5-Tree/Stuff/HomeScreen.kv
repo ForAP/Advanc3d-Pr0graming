@@ -1,0 +1,39 @@
+
+<HomeScreenWidget@Screen>:
+    canvas:
+        Color:
+            rgb: (0.7, 0.1,0.2)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    Button:
+        id: start_Turing_button
+        font_size: 16
+        background_color: [0.8,0.1,0.3,1]
+        text: "Start"
+        center_x: root.width * 2 / 6
+        top: root.top - root.height/2
+        size_hint:(None, None)
+        size:(200, 100)
+        on_press: root.clear_widgets(),root.add_widget(app.inputScreen)
+    Button:
+        id: exit_button
+        background_color: [0.8,0.1,0.3,1]
+        font_size: 16
+        text: "Exit?"
+        on_press: root.endProgram()
+        center_x: root.width * 4 / 6
+        top: root.top - root.height/2
+        size_hint:(None, None)
+        size:(200, 100)
+    Label:
+        id: title_label
+        font_size: 60
+        center_x: root.width / 2
+        top: root.top - 50
+        text: "Turing Machine Simulator"
+        color: [0,0,0,1]
+    Image:
+        source:"Alan.jpg"
+        center_x: root.width / 2
+        top: title_label.top - 100

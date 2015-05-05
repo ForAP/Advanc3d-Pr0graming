@@ -1,0 +1,62 @@
+<myWidget>:
+    Button:
+        id: button_id
+        text: 'Submit'
+        on_press: root.keepInput(user_input.text)
+        pos: (user_input.x+200,user_input.y)
+        size_hint:(None, None)
+        size:(100, 30)
+
+    TextInput:
+        id: user_input
+        center_x: root.width * 3 / 6
+        top: root.top - root.height/2
+        multiline: False
+        on_text_validate: root.check(), root.keepInput(user_input.text),user_input.background_normal
+        on_focus: user_input.background_color=[0.8,1,1,1]
+        on_hint_text: 'Please enter the TM\'s alphebet'
+        size_hint:(None, None)
+        size:(200, 30)
+
+    Button:
+        text: "clear?"
+        on_press: root.clear_widgets(), root.add_widget(button_id)
+
+    Button:
+        text: "Change the screens?"
+        on_press: root.clear_widgets(),root.add_widget(app.second)
+        center_x: root.width/2
+        center_y: root.top-100
+
+<mySecondWidget>:
+    FloatLayout:
+        Label:
+            text: "MOther FUcker"
+            id: new_Label
+            font_size: 45
+            pos_hint: (None,None)
+            pos:(256,200)
+
+
+        Button:
+            text: "Nice, Boy"
+            font_size: 16
+            on_press: root.clear_widgets()
+
+    FloatLayout:
+        Button:
+            text: "Do I crash??"
+            pos: 400, 300
+            size_hint: .2, .4
+            on_press: print root.width, root.height
+
+        Button:
+            text: "print self.width"
+            pos: 300, 300
+            size_hint: .4, .2
+            on_press: print self.width
+
+        Button:
+            text: "ROCK YOU!!"
+            pos_hint: {'x': .3, 'y': .6}
+            size_hint: .5, .2

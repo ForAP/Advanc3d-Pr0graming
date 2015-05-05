@@ -1,0 +1,59 @@
+#:kivy 1.0.9
+#:import random random
+
+<ScreenWidget>:
+
+
+    canvas:
+        Color:
+            rgb: (0.4, 0.3, 0.4)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+
+
+    FloatLayout:
+
+
+    TextInput:
+        id: tape_input
+        font_size: 20
+        center_x: root.width/2
+        height: 50
+        width: 300
+        text: 'Enter Tape'
+
+    Label:
+        id: tape_display
+        font_size: 20
+        text: tape_input.text
+
+
+
+    Label:
+        font_size: 60
+        center_x: root.width / 2
+        top: root.top - 50
+        text: "New Turing Test"
+
+
+    Button:
+        id: create_New_Turing_Machine
+        on_touch_down: create_New_Turing_Machine.text = "Yieew, pressed down"
+        on_touch_up: create_New_Turing_Machine.text = "This is still a test button"
+        on_press: root.printSomething()
+        font_size: 10
+        center_x: root.width * 2 / 6
+        top: root.top - root.height/2
+        text: "This is a test Button"
+        background_color: [0.3,0.5,0.7,1]
+
+    Button:
+        font_size: 10
+        center_x: root.width * 1 / 6
+        top: root.top - root.height/2
+        text: "Create a new Turing Machine"
+        background_color: [0.3,0.5,0.7,1]
+        on_press: root.createTuringMachine()
+

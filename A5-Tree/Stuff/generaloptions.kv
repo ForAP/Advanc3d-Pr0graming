@@ -1,0 +1,18 @@
+# File name: generaloptions.kv
+#:kivy 1.7.0
+#:import generaloptions generaloptions
+<GeneralOptions>:
+    orientation: 'horizontal'
+    padding: 2
+    Button:
+        text: 'New TM'
+        on_press: root.new_machine(*args)
+    Button:
+        text: 'Clear TM'
+        on_press: root.clear(*args)
+    Button:
+        text: 'Remove State'
+        on_release: root.remove(*args)
+    ToggleButton:
+        text: 'Group'
+        on_state: root.group(*args)
