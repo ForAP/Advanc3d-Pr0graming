@@ -5,7 +5,8 @@
     transition: FadeTransition()
     new_machine: _new_machine
     load_machine: _load_machine
-    HomeScreenWidget:
+    HomeScreen:
+    TuringCreator:
     Screen:
         name: 'titlescreen'
         Button:
@@ -14,7 +15,7 @@
             pos_hint: {'center_x': 0.5, 'y': .60}
             size_hint: None, None
             size: 150, 50
-            on_press: root.newTM('', '', [], '', '')
+            on_press: print root #root.newTM('', '', [], '', '')
         Button:
             id: _load_machine
             text: "Return"
@@ -29,7 +30,6 @@
             size_hint: None, None
             size: 150, 50
             on_press: root.current = 'enter_blank'
-    TuringCreator:
     Screen:
         name: 'enter_blank'
         canvas:

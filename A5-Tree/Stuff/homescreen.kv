@@ -1,0 +1,43 @@
+#:import homescreen homescreen
+
+<HomeScreen@Screen>:
+    name: 'homescreen'
+    canvas:
+        Color:
+            rgb: (0.7, 0.1,0.2)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    Button:
+        id: start_Turing_button
+        font_size: 16
+        background_color: [0.8,0.1,0.3,1]
+        text: "Start"
+        pos_hint: {'center_x': 0.3, 'y': .30}
+        size_hint: None, None
+        size: 150, 50
+        home_screen: root
+        on_press: root.test(*args)#root.newTM('', '', [], '', '')
+    Button:
+        id: exit_button
+        background_color: [0.8,0.1,0.3,1]
+        font_size: 16
+        text: "Exit?"
+        turing_creator: root
+        on_press: self.turing_creator.manager.current = 'turingscreen'
+        pos_hint: {'center_x': 0.7, 'y': .30}
+        size_hint: None, None
+        size: 150, 50
+    Label:
+        id: title_label
+        font_size: 60
+        pos_hint: {'center_x': 0.5, 'y': .50}
+        size_hint: None, None
+        size: 150, 50
+        text: "Turing Machine Simulator"
+        color: [0,0,0,1]
+    Image:
+        source:"Alan.jpg"
+        pos_hint: {'center_x': 0.5, 'y': .70}
+        size_hint: None, None
+        size: 150, 150

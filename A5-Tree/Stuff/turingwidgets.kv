@@ -5,6 +5,7 @@
     size_hint: None, None
 
 <StickMan>:
+    size: 48,48
     canvas:
         PushMatrix
         Line:
@@ -25,16 +26,3 @@
         Line:
             points: 34,5,24,15
         PopMatrix
-
-
-        # Rectangle:
-        #     size: self.size
-        #     pos: self.pos
-        # Color(*get_color_from_hex('ffe354'))
-        #         Ellipse(pos=(touch_x - 20, touch_y + 20), size=(40,40))
-        #         Line(circle=(touch_x, touch_y + 40, 30, 0, 360), width=2)
-        #
-        #         label = Label(text='ID: {}\nX: {} | Y: {}'.format(touch.point_id, touch_x, touch_y))
-        #         label.center_x = touch_x + 80
-        #         label.center_y = touch_y + 80
-        #         label.color = (1,1,1)

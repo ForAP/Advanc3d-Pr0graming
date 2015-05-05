@@ -4,7 +4,7 @@ kivy.require('1.7.0')
 import math
 from kivy.uix.togglebutton import ToggleButton
 from kivy.graphics import Line
-from comicwidgets import StickMan, DraggableWidget
+from turingwidgets import StickMan, DraggableWidget
 
 class ToolButton(ToggleButton):
     def on_touch_down(self, touch):
