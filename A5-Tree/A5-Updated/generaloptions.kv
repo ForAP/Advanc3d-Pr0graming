@@ -6,18 +6,17 @@
     padding: 2
     Button:
         text: 'Create new TM'
-        on_press: root.newTM('', '', [], '', '')
+        on_press: root.newTM(*args)
     Button:
         text: 'Set Initial Tape'
         on_press: root.get_caption(*args)
     Button:
         text: 'Load TM'
-        on_press: root.set_state(*args)
     Button:
         text: 'Save TM'
     Button:
         text: 'Clear TM'
-        on_press: root.clear(*args)
+        on_press: root.clear(*args), root.newTM(*args)
     Button:
         text: 'Remove State'
         on_release: root.remove(*args)

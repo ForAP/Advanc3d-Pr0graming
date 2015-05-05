@@ -10,9 +10,9 @@ class StatusBar(BoxLayout):
 
     def on_counter(self, instance, value):
         if value == 0:
-            self.msg_text = "Drawing space cleared"
+            self.msg_text = "New Turing Machine Instantiated"
         elif value - 1 == self.__class__.previous_counter:
-            self.msg_text = "Widget added"
+            self.msg_text = "State added"
         elif value + 1 == StatusBar.previous_counter:
-            self.msg_text = "Widget removed"
+            self.msg_text = "State removed"
         self.previous_counter = value

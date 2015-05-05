@@ -46,21 +46,23 @@ class GeneralOptions(BoxLayout):
         p = TapePopup()
         p.open()
 
-    def newTM(self, alphabet, initialstate, initialtape, finalstates, blank):
+    def newTM(self, instance):
         #TODO WE need to check the user's input (No spaces or what ever)
-        tm = TuringMachine(alphabet, initialstate, initialtape, finalstates, blank)
-        p = AlphabetPopup()
-        p.open()
-
-    def gestures(self, instance, value):
-        pass
+        self.alphabet = ''
+        self.initialstate = ''
+        self.initialtape = ''
+        self.finalstates = set()
+        self.blank = ''
+        self.tm = TuringMachine(self.alphabet, self.initialstate, self.initialtape, self.finalstates, self.blank)
+        # p = AlphabetPopup()
+        # p.open()
 
     def unselect_all(self):
         for child in self.drawing_space.children:
             child.unselect()
 
     def on_translation(self,instance,value):
-        for child in self.drawing_space.children:
+        for child in self.d*argsrawing_space.children:
             if child.selected:
                 child.translate(*self.translation)
 
