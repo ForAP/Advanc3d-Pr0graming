@@ -16,15 +16,15 @@
         pos_hint: {'center_x': 0.3, 'y': .30}
         size_hint: None, None
         size: 150, 50
-        home_screen: root
-        on_press: root.test(*args)#root.newTM('', '', [], '', '')
+        turing_creator: root
+        on_press: self.turing_creator.manager.current = 'turingscreen'
     Button:
         id: exit_button
         background_color: [0.8,0.1,0.3,1]
         font_size: 16
         text: "Exit?"
-        turing_creator: root
-        on_press: self.turing_creator.manager.current = 'turingscreen'
+        home_screen: root
+        on_press: root.endProgram()
         pos_hint: {'center_x': 0.7, 'y': .30}
         size_hint: None, None
         size: 150, 50

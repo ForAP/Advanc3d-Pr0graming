@@ -11,9 +11,6 @@ class HomeScreen(Screen):
     def endProgram(self):
         sys.exit()
 
-    def test(self, instance):
-        print 'hi'
-
     def newTM(self, alphabet, initialstate, initialtape, finalstates, blank):
         #TODO WE need to check the user's input (No spaces or what ever)
         print "Should show an instance of the turning machine object just below"
