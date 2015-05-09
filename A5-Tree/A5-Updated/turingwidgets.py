@@ -1,7 +1,8 @@
-# File name: comicwidgets.py
+# File name: turingwidgets.py
 import kivy
 kivy.require('1.7.0')
 from kivy.uix.relativelayout import RelativeLayout
+from kivy.properties import NumericProperty
 from kivy.graphics import Line
 
 class DraggableWidget(RelativeLayout):
@@ -49,4 +50,20 @@ class DraggableWidget(RelativeLayout):
             self.selected = None
 
 class StickMan(DraggableWidget):
-    pass
+    r = NumericProperty(1)
+
+    def change_r(self, change):
+        self.r = change
+
+    def goback(self):
+        self.r = 1
+
+    # def __init__(self, **kwargs):
+    #     self.size= [50,50]
+    #     self.pos = [100,50]
+    #     self.r = 0
+    #     super(StickMan, self).__init__(**kwargs)
+    #
+    # def on_touch_down(self, touch):
+        # if self.collide_point(touch.x,touch.y):
+        #     self.r = 100.0                       # <---- This does nothing!

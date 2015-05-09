@@ -5,6 +5,8 @@ import math
 from kivy.uix.togglebutton import ToggleButton
 from kivy.graphics import Line
 from turingwidgets import StickMan, DraggableWidget
+from kivy.utils import get_color_from_hex
+from kivy.graphics import Color, Ellipse, Line
 from state import State
 
 class ToolButton(ToggleButton):
@@ -72,11 +74,18 @@ class ToolLine(ToolFigure):
         return DraggableWidget(pos = pos, size = size)
 
 class ToolCircle(ToolFigure):
+    # def draw(self, ds, x, y):
+    #     sm = Ellipse(size=(30,30))
+    #     sm.center = (x,y)
+    #     state = State()
+    #     self.parent.general_options.add_state(state)
+    #     ds.add_widget(sm)
+
     def create_figure(self,ix,iy,fx,fy):
-        return Line(circle=[ix,iy,math.hypot(ix-fx,iy-fy)])
+        return Ellipse(size=(30,30)) #Line(circle=[ix,iy,math.hypot(ix-fx,iy-fy)])
 
     def create_widget(self,ix,iy,fx,fy):
-        r = math.hypot(ix-fx, iy-fy)
-        pos = (ix-r, iy-r)
-        size = (2*r, 2*r)
-        return DraggableWidget(pos = pos, size = size)
+        # r = math.hypot(ix-fx, iy-fy)
+        # pos = (ix-r, iy-r)
+        # size = (2*r, 2*r)
+        return DraggableWidget() #pos = pos, size = size

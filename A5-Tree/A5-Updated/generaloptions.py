@@ -62,7 +62,7 @@ class GeneralOptions(BoxLayout):
             child.unselect()
 
     def on_translation(self,instance,value):
-        for child in self.d*argsrawing_space.children:
+        for child in self.drawing_space.children:
             if child.selected:
                 child.translate(*self.translation)
 
