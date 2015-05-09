@@ -49,6 +49,13 @@ class TuringMachine:
 
         self.states[statename] = state
 
+    def removestate(self, statename):
+        '''Removes a state from the TM
+        Args:
+            statename(str) : name of the state
+        '''
+        del self.states[statename]
+
     def getstate(self):
         '''Get the current state
 

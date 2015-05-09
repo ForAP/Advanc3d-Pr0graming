@@ -7,10 +7,16 @@ from kivy.graphics import Line
 from state import State
 
 class DraggableWidget(RelativeLayout):
+    stateName = 0
+
     def __init__(self,  **kwargs):
         self.selected = None
         self.touched = False
         super(DraggableWidget, self).__init__(**kwargs)
+
+    def set_state(self):
+        self.stateName = self.parent.general_options.nameCounter - 1
+        print self.stateName
 
     def on_touch_down(self, touch):
         if self.collide_point(touch.x, touch.y):

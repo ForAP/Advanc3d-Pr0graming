@@ -24,13 +24,16 @@ class GeneralOptions(BoxLayout):
         self.nameCounter += 1
         print state
 
-    def clear(self, instance):
-        self.drawing_space.clear_widgets()
+    # def clear(self, instance):
+    #     self.drawing_space.clear_widgets()
 
     def remove(self, instance):
         ds = self.drawing_space
         if len(ds.children) > 0:
+            print ds.children[0].stateName
+            self.tm.removestate(str(ds.children[0].stateName))
             ds.remove_widget(ds.children[0])
+            self.nameCounter -= 1
 
     def group(self, instance, value):
         if value == 'down':
@@ -54,6 +57,8 @@ class GeneralOptions(BoxLayout):
         self.finalstates = set()
         self.blank = ''
         self.tm = TuringMachine(self.alphabet, self.initialstate, self.initialtape, self.finalstates, self.blank)
+        self.drawing_space.clear_widgets()
+        self.nameCounter = 0
         # p = AlphabetPopup()
         # p.open()
 

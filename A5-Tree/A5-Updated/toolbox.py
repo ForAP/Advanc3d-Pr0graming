@@ -28,6 +28,8 @@ class ToolStickman(ToolButton):
         state = State()
         self.parent.general_options.add_state(state)
         ds.add_widget(sm)
+        ds.children[0].set_state()
+
 
 # class ToolFigure(ToolButton):
 #     def draw(self, ds, x, y):

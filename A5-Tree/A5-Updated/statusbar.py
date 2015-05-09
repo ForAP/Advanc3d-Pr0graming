@@ -15,4 +15,4 @@ class StatusBar(BoxLayout):
             self.msg_text = "State added"
         elif value + 1 == StatusBar.previous_counter:
             self.msg_text = "State removed"
-        self.previous_counter = value
+        self.__class__.previous_counter = value
