@@ -7,7 +7,7 @@ from kivy.graphics import Line
 from state import State
 
 class DraggableWidget(RelativeLayout):
-    stateName = 0
+    stateName = NumericProperty(0)
 
     def __init__(self,  **kwargs):
         self.selected = None

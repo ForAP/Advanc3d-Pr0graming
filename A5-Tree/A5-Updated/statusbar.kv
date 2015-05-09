@@ -2,10 +2,10 @@
 #:kivy 1.7.0
 #:import statusbar statusbar
 <StatusBar>:
-    msg_text: _msg_label.text
+    msg_label: _msg_label
     orientation: 'horizontal'
     Label:
-        text: 'Total Figures: ' + str(root.counter)
+        text: 'Tape: ' + root.tape
     Label:
         id: _msg_label
-        text: "New Turing Machine Instantiated"
+        text: "New TM Machine"

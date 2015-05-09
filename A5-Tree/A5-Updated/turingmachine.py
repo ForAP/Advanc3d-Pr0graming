@@ -49,6 +49,15 @@ class TuringMachine:
 
         self.states[statename] = state
 
+    # def set_alphabet(self, alphabet):
+    #     self.alphabet = alphabet
+    #
+    # def set_initialstate(self, initialstate):
+    #     self.initialstate = initialstate
+    #
+    # def add_finalstate(self, statename):
+    #     self.finalstates.append()
+
     def removestate(self, statename):
         '''Removes a state from the TM
         Args:

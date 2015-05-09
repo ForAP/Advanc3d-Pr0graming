@@ -19,6 +19,7 @@ class GeneralOptions(BoxLayout):
     tm = TuringMachine(alphabet, initialstate, initialtape, finalstates, blank)
     nameCounter = 0
 
+
     def add_state(self, state):
         self.tm.addstate(str(self.nameCounter), state)
         self.nameCounter += 1
@@ -73,6 +74,8 @@ class GeneralOptions(BoxLayout):
 
 class TapePopup(Popup):
     def get_caption(self, instance):
+        initialtape = str(instance.text)
+        print initialtape
         p = AlphabetPopup()
         p.open()
 
