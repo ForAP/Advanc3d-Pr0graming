@@ -28,6 +28,12 @@ class GeneralOptions(BoxLayout):
     # def clear(self, instance):
     #     self.drawing_space.clear_widgets()
 
+    def set_alphabet(self,alphabet):
+        self.tm.set_alphabet_in_TM(alphabet)
+
+    def set_tape(self,tape):
+        self.tm.set_tape_in_TM(tape)
+
     def remove(self, instance):
         ds = self.drawing_space
         if len(ds.children) > 0:
@@ -42,12 +48,14 @@ class GeneralOptions(BoxLayout):
         else:
             self.group_mode = False
             self.unselect_all()
+        print self.alphabet
+        print self.initialtape
 
     def new_machine(self, instance):
         self.turing_creator.manager.current = 'titlescreen'
 
     def get_caption(self, instance):
-        p = TapePopup()
+        p = AlphabetPopup()
         p.open()
 
     def newTM(self, instance):
@@ -73,11 +81,22 @@ class GeneralOptions(BoxLayout):
                 child.translate(*self.translation)
 
 class TapePopup(Popup):
-    def get_caption(self, instance):
-        initialtape = str(instance.text)
-        print initialtape
-        p = AlphabetPopup()
-        p.open()
+    def grabInputFromTape(self, tape):
+        #TODO: TEST THE USER INPUT
+        tape.replace(" ", "")
+        initialtape = str(tape)
+        self.parent.initialtape = initialtape
 
 class AlphabetPopup(Popup):
-    pass
+     def get_caption(self, instance):
+        p = TapePopup()
+        p.open()
+
+     def grabInputFromTape(self,alphabet):
+        #Test the user input for irregular input
+        # strip out the spaces
+        alphabet.replace(" ", "")
+        # eliminate all duplicate characters
+        alphabet = "".join(set(alphabet))
+        alphabet = alphabet.lower()
+        self.parent.alphabet = alphabet

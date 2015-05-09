@@ -32,7 +32,7 @@
     TextInput:
         id: user_input_initialtape
         multiline: False
-        on_text_validate: root.get_caption(*args), root.dismiss()
+        on_text_validate: root.grabInputFromTape(user_input_initialtape.text), root.dismiss()
         on_focus: user_input_initialtape.background_color=[0.8,1,1,1]
 
 <AlphabetPopup>:
@@ -43,7 +43,7 @@
     TextInput:
         id: user_input_initialtape
         multiline: False
-        on_text_validate: root.dismiss()
+        on_text_validate: root.grabInputFromTape(user_input_initialtape.text),root.get_caption(*args),root.dismiss()
         on_focus: user_input_initialtape.background_color=[0.8,1,1,1]
 
 

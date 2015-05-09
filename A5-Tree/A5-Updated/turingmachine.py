@@ -49,6 +49,12 @@ class TuringMachine:
 
         self.states[statename] = state
 
+    def set_alphabet_in_TM(self,alphabet):
+        self.alphabet = alphabet
+
+    def set_tape_in_TM(self,tape):
+        pass #TODO (FIX THIS BY ADDING IN THE TAPE TO THE TM
+
     # def set_alphabet(self, alphabet):
     #     self.alphabet = alphabet
     #
