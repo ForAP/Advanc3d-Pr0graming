@@ -15,22 +15,15 @@
 <ToolBox@GridLayout>:
     cols: 1
     padding: 1
-    # tool_state: _tool_state
-    # tool_line: _tool_line
-    tool_stickman: _tool_stickman
-    # ToolCircle:
-    #     id:  _tool_state
-    #     colour: .8,.9,0,1
-    #     canvas:
-    #         Ellipse:
-    #             size: 30,30
-    #             pos: 9,9
-    # ToolLine:
-    #     id: _tool_line
-    #     canvas:
-    #         Line:
-    #             points: 10,10,38,38
-    ToolStickman:
-        id: _tool_stickman
-        StickMan:
+    tool_state: _tool_state
+    tool_transition: _tool_transition
+    ToolState:
+        id: _tool_state
+        StateRep:
             pos_hint: {'center_x':.5,'center_y':.5}
+    ToolTransition:
+        id:  _tool_transition
+        colour: .8,.9,0,1
+        Label:
+            text: 'Add T'
+            pos: -25,-25

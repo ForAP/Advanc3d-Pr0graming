@@ -2,6 +2,7 @@
 import kivy
 kivy.require('1.7.0')
 from kivy.uix.relativelayout import RelativeLayout
+from kivy.uix.popup import Popup
 from kivy.properties import NumericProperty
 from kivy.graphics import Line
 from state import State
@@ -19,11 +20,54 @@ class DraggableWidget(RelativeLayout):
         print self.stateName
 
     def on_touch_down(self, touch):
+        ''' double tap to add transitions to a tm directly'''
+        if touch.is_double_tap and self.collide_point(touch.x, touch.y):
+            self.transition_popups()
+            print self.parent.general_options.tm.states
+            #test
+            self.parent.general_options.tm.states[str(self.stateName)].add_transition('0', '1','1','L') #seensym, writesym, newstate, move
         if self.collide_point(touch.x, touch.y):
             self.touched = True
             self.select()
             return True
         return super(DraggableWidget, self).on_touch_down(touch)
+
+    def transition_popups(self):
+        p4 = MovePopup()
+        p4.bind(on_dismiss=self.move_callback)
+        p4.open()
+        p3 = NewStatePopup()
+        p3.bind(on_dismiss=self.newstate_callback)
+        p3.open()
+        p2 = WriteSymPopup()
+        p2.bind(on_dimiss=self.writesym_callback)
+        p2.open()
+        p1 = SeenSymPopup()
+        p1.bind(on_dimiss=self.seensym_callback)
+        p1.open()
+
+    '''fix this shit for me cos it's 6am and i ceebs and do the error checking'''
+
+    def move_callback(self, instance):
+        self.initialtape = instance.getInfo()
+        print self.initialtape
+        self.updateTM
+        return False
+
+    def newstate_callback(self, instance):
+        self.alphabet = instance.getInfo()
+        print self.alphabet
+        return False
+
+    def writesym_callback(self, instance):
+        self.alphabet = instance.getInfo()
+        print self.alphabet
+        return False
+
+    def seensym_callback(self, instance):
+        self.alphabet = instance.getInfo()
+        print self.alphabet
+        return False
 
     def select(self):
         if not self.selected:
@@ -45,20 +89,29 @@ class DraggableWidget(RelativeLayout):
         self.center_y = self.iy = self.iy + y
 
     def on_touch_up(self, touch):
+        # go = self.parent.general_options
         self.touched = False
         if self.selected:
-            if self.parent.general_options.set_initialstate:
+            if self.parent.general_options.set_state:
                 self.parent.general_options.initialstate = self.stateName
-                print self.parent.general_options.initialstate
-                self.unselect()
+                self.parent.general_options.updateTM()
+                print "New Initial State is: " + str(self.parent.general_options.initialstate)
+            if self.parent.general_options.final_states:
+                self.parent.general_options.finalstates.add(self.stateName)
+                self.parent.general_options.updateTM()
+                print "The final states are: " + str(self.parent.general_options.finalstates)
+            self.unselect()
         return super(DraggableWidget, self).on_touch_up(touch)
+
+    # def do_transition(self):
+    #
 
     def unselect(self):
         if self.selected:
             self.canvas.remove(self.selected)
             self.selected = None
 
-class StickMan(DraggableWidget):
+class StateRep(DraggableWidget):
     r = NumericProperty(1)
 
     def change_r(self, change):
@@ -67,12 +120,11 @@ class StickMan(DraggableWidget):
     def goback(self):
         self.r = 1
 
-    # def __init__(self, **kwargs):
-    #     self.size= [50,50]
-    #     self.pos = [100,50]
-    #     self.r = 0
-    #     super(StickMan, self).__init__(**kwargs)
-    #
-    # def on_touch_down(self, touch):
-        # if self.collide_point(touch.x,touch.y):
-        #     self.r = 100.0                       # <---- This does nothing!
+class MovePopup(Popup):
+    pass
+class NewStatePopup(Popup):
+    pass
+class WriteSymPopup(Popup):
+    pass
+class SeenSymPopup(Popup):
+    pass

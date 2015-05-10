@@ -39,6 +39,8 @@ class TuringMachine:
         self.currentstate = self.initialstate
         self.tape = Tape(initialtape, blank)
         self.finalstates = finalstates
+        self.halted = ''
+        self.finaltape = ''
 
     def addstate(self, statename, state):
         '''Add a state to the TM
@@ -52,8 +54,8 @@ class TuringMachine:
     def set_alphabet_in_TM(self,alphabet):
         self.alphabet = alphabet
 
-    def set_tape_in_TM(self,tape):
-        pass #TODO (FIX THIS BY ADDING IN THE TAPE TO THE TM
+    def set_tape_in_TM(self, tape, blank):
+        self.tape = Tape(tape, blank)
 
     # def set_alphabet(self, alphabet):
     #     self.alphabet = alphabet
@@ -123,9 +125,10 @@ class TuringMachine:
             print "tape = ", self.gettape()
             print " "
         if self.currentstate in self.finalstates:
-            print "halted with answer yes"
+            self.halted = "halted with answer yes"
         else:
-            print "halted with answer no"
+            self.halted = "halted with answer no"
+        self.finaltape = self.gettape()
 
 
 def parseTuringMachine(infile):

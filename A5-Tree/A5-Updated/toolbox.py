@@ -4,9 +4,9 @@ kivy.require('1.7.0')
 import math
 from kivy.uix.togglebutton import ToggleButton
 from kivy.graphics import Line
-from turingwidgets import StickMan, DraggableWidget
+from turingwidgets import StateRep, DraggableWidget
 from kivy.utils import get_color_from_hex
-from kivy.graphics import Color, Ellipse, Line
+from kivy.graphics import Color, Ellipse, Line, Bezier
 from state import State
 
 class ToolButton(ToggleButton):
@@ -21,15 +21,26 @@ class ToolButton(ToggleButton):
     def draw(self, ds, x, y):
         pass
 
-class ToolStickman(ToolButton):
+class ToolState(ToolButton):
     def draw(self, ds, x, y):
-        sm = StickMan(width=48, height=48)
+        sm = StateRep(width=48, height=48)
         sm.center = (x,y)
         state = State()
         self.parent.general_options.add_state(state)
         ds.add_widget(sm)
         ds.children[0].set_state()
 
+class ToolTransition(ToolButton):
+    def draw(self, ds, x, y):
+        pass
+
+    def on_touch_down(self, touch):
+        ds = self.parent.drawing_space
+        if touch.is_double_tap and ds.collide_point(touch.x, touch.y):
+            (x,y) = ds.to_widget(touch.x, touch.y)
+            print (x,y)
+            return True
+        return super(ToolTransition, self).on_touch_down(touch)
 
 # class ToolFigure(ToolButton):
 #     def draw(self, ds, x, y):

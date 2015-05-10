@@ -30,6 +30,8 @@
         anchor_y: 'bottom'
         BoxLayout:
             orientation: 'vertical'
+            general_options: _general_options
+            turing_creator: root
             GeneralOptions:
                 id: _general_options
                 drawing_space: _drawing_space
@@ -38,6 +40,5 @@
                 height: 48
             StatusBar:
                 id: _status_bar
-                general_options: _general_options
                 size_hint: 1,None
                 height: 24

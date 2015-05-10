@@ -4,7 +4,7 @@
 <DraggableWidget>:
     size_hint: None, None
 
-<Stickman>:
+<StateRep>:
     size: 48,48
     # color: self.r,1,1,1
     # pos_hint: {'center_x':1,'center_y':.5}
@@ -18,6 +18,50 @@
     Label:
         id: _state_label
         text: 'ID:' + str(root.stateName)
+
+<SeenSymPopup>:
+    id: _seensym_popup
+    size_hint: .5, .5
+    auto_dismiss: False
+    title: 'Enter Seen Symbol'
+    TextInput:
+        id: user_input_initialtape
+        multiline: False
+        on_text_validate: root.grabInputFromTape(user_input_initialtape.text), root.dismiss()
+        on_focus: user_input_initialtape.background_color=[0.8,1,1,1]
+
+<WriteSymPopup>:
+    id: _writesym_popup
+    size_hint: .5, .5
+    auto_dismiss: False
+    title: 'Enter Write Symbol'
+    TextInput:
+        id: user_input_initialtape
+        multiline: False
+        on_text_validate: root.grabInputFromTape(user_input_initialtape.text), root.dismiss()
+        on_focus: user_input_initialtape.background_color=[0.8,1,1,1]
+
+<NewStatePopup>:
+    id: _newstate_popup
+    size_hint: .5, .5
+    auto_dismiss: False
+    title: 'Enter New State'
+    TextInput:
+        id: user_input_initialtape
+        multiline: False
+        on_text_validate: root.grabInputFromTape(user_input_initialtape.text), root.dismiss()
+        on_focus: user_input_initialtape.background_color=[0.8,1,1,1]
+
+<MovePopup>:
+    id: _move_popup
+    size_hint: .5, .5
+    auto_dismiss: False
+    title: 'Enter direction to move tape'
+    TextInput:
+        id: user_input_initialtape
+        multiline: False
+        on_text_validate: root.grabInputFromTape(user_input_initialtape.text), root.dismiss()
+        on_focus: user_input_initialtape.background_color=[0.8,1,1,1]
 # Color(*get_color_from_hex('ffe354'))
 # Ellipse(pos=(touch_x - 20, touch_y + 20), size=(40,40))
 # Line(circle=(touch_x, touch_y + 40, 30, 0, 360), width=2)

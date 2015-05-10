@@ -5,24 +5,27 @@
     orientation: 'horizontal'
     padding: 2
     Button:
-        text: 'Create new TM'
-        on_press: root.newTM(*args)
+        text: 'Set Initial State'
+        on_press: root.set_initialtape(*args)
     Button:
-        text: 'Set Initial Tape'
-        on_press: root.get_caption(*args)
-    Button:
-        text: 'Load TM'
-    Button:
-        text: 'Save TM'
+        text: 'Run TM'
+        on_press: root.test()
+    ToggleButton:
+        text: 'Set Initial State'
+        on_state: root.set_initialstate(*args)
+    ToggleButton:
+        text: 'Set Final States'
+        on_state: root.set_finalstates(*args)
+    # Button:
+    #     text: 'Add Transition'
+    #     on_press: root.transitions(True)
     Button:
         text: 'Clear TM'
         on_press: root.newTM(*args)
     Button:
         text: 'Remove State'
         on_release: root.remove(*args)
-    ToggleButton:
-        text: 'Set Initial State'
-        on_state: root.set_initialstate(*args)
+
 
 <TapePopup>:
     id: _tape_popup
@@ -45,6 +48,18 @@
         multiline: False
         on_text_validate: root.grabInputFromTape(user_input_initialtape.text), root.dismiss()
         on_focus: user_input_initialtape.background_color=[0.8,1,1,1]
+
+# <TransitionPopup>:
+#     id: _alphabet_popup
+#     size_hint: .5, .5
+#     auto_dismiss: False
+#     title: 'Set Alphabet Here'
+#     TextInput:
+#         id: user_input_initialtape
+#         multiline: False
+#         on_text_validate: root.grabInputFromTape(user_input_initialtape.text), root.dismiss()
+#         on_focus: user_input_initialtape.background_color=[0.8,1,1,1]
+
 
 
 
