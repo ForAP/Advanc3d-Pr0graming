@@ -47,7 +47,9 @@ class DraggableWidget(RelativeLayout):
     def on_touch_up(self, touch):
         self.touched = False
         if self.selected:
-            if not self.parent.general_options.group_mode:
+            if self.parent.general_options.set_initialstate:
+                self.parent.general_options.initialstate = self.stateName
+                print self.parent.general_options.initialstate
                 self.unselect()
         return super(DraggableWidget, self).on_touch_up(touch)
 

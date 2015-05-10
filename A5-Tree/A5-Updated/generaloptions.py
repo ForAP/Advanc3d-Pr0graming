@@ -9,7 +9,8 @@ from transition import Transition
 from state import State
 
 class GeneralOptions(BoxLayout):
-    group_mode = False
+    set_state = False
+    final_states = False
     translation = ListProperty(None)
     alphabet = ''
     initialstate = ''
@@ -42,21 +43,30 @@ class GeneralOptions(BoxLayout):
             ds.remove_widget(ds.children[0])
             self.nameCounter -= 1
 
-    def group(self, instance, value):
+    def set_initialstate(self, instance, value):
         if value == 'down':
-            self.group_mode = True
+            self.set_state = True
         else:
-            self.group_mode = False
-            self.unselect_all()
-        print self.alphabet
-        print self.initialtape
+            self.set_state = False
 
     def new_machine(self, instance):
         self.turing_creator.manager.current = 'titlescreen'
 
     def get_caption(self, instance):
-        p = AlphabetPopup()
+        popup = AlphabetPopup()
+        popup.bind(on_dismiss=self.my_callback)
+        popup.open()
+        p = TapePopup()
+        p.bind(on_dismiss=self.my_callback)
         p.open()
+        print self.initialtape
+
+    def my_callback(instance):
+        self.initialtape = instance.getInfo()
+        print self.initialtape
+        # self.tm = TuringMachine(self.alphabet, self.initialstate, self.initialtape, self.finalstates, self.blank)
+        # print('Popup', instance, 'is being dismissed but is prevented!')
+        return False
 
     def newTM(self, instance):
         #TODO WE need to check the user's input (No spaces or what ever)
@@ -81,22 +91,43 @@ class GeneralOptions(BoxLayout):
                 child.translate(*self.translation)
 
 class TapePopup(Popup):
+    initialtape = ''
+    def getInfo(self):
+        return self.initialtape
+
     def grabInputFromTape(self, tape):
-        #TODO: TEST THE USER INPUT
-        tape.replace(" ", "")
+        #remove the spaces
+        tape = tape.replace(" ", "")
+        #set everything to lowerCase
+        tape = tape.lower()
+        #check against the alphabet
+        #TODO: get the actualy input
+        alphabet = "01b"
+
+        ####### We will sort the alphebet, eliminate all duplicated variables from a copy of tape, then compare the two
+        copyOfTape = "".join(set(tape))
+        copyOfTape = sorted(copyOfTape)
+        copyOfAlphabet = sorted(alphabet)
+        print "This is the tape:\t" + tape
         initialtape = str(tape)
-        self.parent.initialtape = initialtape
+
+        for x in copyOfTape:
+            if x not in copyOfAlphabet:
+                print "It is not a match"
+                return IOError
+        print "It is a match"
+        Match = True
+        return tape
 
 class AlphabetPopup(Popup):
-     def get_caption(self, instance):
-        p = TapePopup()
-        p.open()
+    alphabet = ''
+    def getInfo(self):
+        return self.alphabet
 
-     def grabInputFromTape(self,alphabet):
+    def grabInputFromTape(self, alphabet):
         #Test the user input for irregular input
         # strip out the spaces
         alphabet.replace(" ", "")
         # eliminate all duplicate characters
         alphabet = "".join(set(alphabet))
-        alphabet = alphabet.lower()
-        self.parent.alphabet = alphabet
+        self.alphabet = alphabet.lower()

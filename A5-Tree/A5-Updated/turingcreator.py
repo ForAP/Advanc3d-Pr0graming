@@ -14,13 +14,11 @@ Builder.load_file('turingcreator.kv')
 Builder.load_file('homescreen.kv')
 
 class TuringScreenManager(ScreenManager):
-    def newTM(self, alphabet, initialstate, initialtape, finalstates, blank):
-        #TODO WE need to check the user's input (No spaces or what ever)
-        print "Should show an instance of the turning machine object just below"
-        tm = TuringMachine(alphabet, initialstate, initialtape, finalstates, blank)
-        print tm
+    pass
+
 class TuringScreenManagerApp(App):
     def build(self):
         return TuringScreenManager()
+        
 if __name__=="__main__":
     TuringScreenManagerApp().run()
