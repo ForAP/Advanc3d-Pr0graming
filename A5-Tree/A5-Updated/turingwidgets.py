@@ -87,19 +87,21 @@ class DraggableWidget(RelativeLayout):
     def translate(self, x, y):
         self.center_x = self.ix = self.ix + x
         self.center_y = self.iy = self.iy + y
+'''might have to fix up this one a bit'''
+
 
     def on_touch_up(self, touch):
         # go = self.parent.general_options
         self.touched = False
         if self.selected:
             if self.parent.general_options.set_state:
-                self.parent.general_options.initialstate = self.stateName
-                self.parent.general_options.updateTM()
-                print "New Initial State is: " + str(self.parent.general_options.initialstate)
+                # self.parent.general_options.initialstate = self.stateName
+                self.parent.general_options.tm.set_initialstate(self.stateName)
+                print "New Initial State is: " + str(self.parent.general_options.tm.initialstate)
             if self.parent.general_options.final_states:
-                self.parent.general_options.finalstates.add(self.stateName)
-                self.parent.general_options.updateTM()
-                print "The final states are: " + str(self.parent.general_options.finalstates)
+                # self.parent.general_options.finalstates.add(self.stateName)
+                self.parent.general_options.tm.set_finalstates(self.stateName)
+                print "The final states are: " + str(self.parent.general_options.tm.finalstates)
             self.unselect()
         return super(DraggableWidget, self).on_touch_up(touch)
 

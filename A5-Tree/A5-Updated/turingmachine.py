@@ -57,6 +57,12 @@ class TuringMachine:
     def set_tape_in_TM(self, tape, blank):
         self.tape = Tape(tape, blank)
 
+    def set_initialstate(self, _state):
+        self.initialstate = _state
+
+    def set_finalstates(self, _final):
+        self.finalstates.add(_final)
+
     # def set_alphabet(self, alphabet):
     #     self.alphabet = alphabet
     #
