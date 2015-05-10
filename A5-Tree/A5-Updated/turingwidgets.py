@@ -4,6 +4,7 @@ kivy.require('1.7.0')
 from kivy.uix.relativelayout import RelativeLayout
 from kivy.properties import NumericProperty
 from kivy.graphics import Line
+from state import State
 
 class DraggableWidget(RelativeLayout):
     def __init__(self,  **kwargs):
