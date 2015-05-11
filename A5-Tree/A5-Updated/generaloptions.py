@@ -20,7 +20,7 @@ class GeneralOptions(BoxLayout):
     blank = 'b'
     tm = TuringMachine(alphabet, initialstate, initialtape, finalstates, blank)
     nameCounter = 0
-
+    transInfo = []
 
     def add_state(self, state):
         self.tm.addstate(str(self.nameCounter), state)
@@ -39,6 +39,27 @@ class GeneralOptions(BoxLayout):
 
     def set_tape(self,tape):
         self.tm.set_tape_in_TM(tape)
+
+    def collect_trans_info(self,value,counter,current_state_name):
+        self.transInfo.append(value)
+        if counter == 4:
+            print "Here we have to actually add the transitions"
+            for state in self.tm.states:
+                print str(state)
+                if str(state) == current_state_name:
+                    print self.tm.getstate()
+                    #state.add_transition(self.transInfo[0],self.transInfo[1],self.transInfo[2],self.transInfo[3])
+
+            print "NOW PRINTING THE LIST"
+
+            #call back to write and seen not shown???
+
+            for x in self.transInfo:
+                print x
+            self.transInfo = [0]*4
+
+            #add_transition(self, seensym, writesym, newstate, move)
+
 
     def remove(self, instance):
         ds = self.drawing_space
@@ -75,6 +96,19 @@ class GeneralOptions(BoxLayout):
         self.initialtape = instance.getInfo()
         self.tm.set_alphabet_in_TM(self.alphabet)
         self.tm.set_tape_in_TM(self.initialtape, self.blank)
+
+        #HERE WE ADD IN CHARACTER TO THE TM depending on the tape input
+
+        copyOfTape = "".join(set(self.initialtape))
+        copyOfTape = sorted(copyOfTape)
+        copyOfAlphabet = sorted(self.alphabet)
+        for x in copyOfTape:
+             if x not in copyOfAlphabet:
+                copyOfAlphabet.append(x)
+                # we added a new character to the alphabet
+
+        stringAlphabet = "".join(copyOfAlphabet)
+        self.tm.set_alphabet_in_TM(stringAlphabet)
         return False
 
     def alphabet_callback(self, instance):
@@ -124,7 +158,8 @@ class TapePopup(Popup):
         #set everything to lowerCase
         tape = tape.lower()
         #check against the alphabet
-        #TODO: get the actualy input
+        #TODO: get the actualy alphabet
+
 
         ####### We will sort the alphebet, eliminate all duplicated variables from a copy of tape, then compare the two
         # copyOfTape = "".join(set(tape))
@@ -155,4 +190,6 @@ class AlphabetPopup(Popup):
         self.alphabet = alphabet.lower()
 
 class TransitionPopup(Popup):
+
+
     pass

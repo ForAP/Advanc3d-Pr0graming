@@ -20,12 +20,12 @@ class DraggableWidget(RelativeLayout):
         print self.stateName
 
     def on_touch_down(self, touch):
-        ''' double tap to add transitions to a tm directly'''
+        # double tap to add transitions to a tm directly
         if touch.is_double_tap and self.collide_point(touch.x, touch.y):
             self.transition_popups()
             print self.parent.general_options.tm.states
             #test
-            self.parent.general_options.tm.states[str(self.stateName)].add_transition('0', '1','1','L') #seensym, writesym, newstate, move
+            self.parent.general_options.tm.states[str(self.stateName)].add_transition('0','1','1','L') #seensym, writesym, newstate, move
         if self.collide_point(touch.x, touch.y):
             self.touched = True
             self.select()
@@ -46,27 +46,32 @@ class DraggableWidget(RelativeLayout):
         p1.bind(on_dimiss=self.seensym_callback)
         p1.open()
 
-    '''fix this shit for me cos it's 6am and i ceebs and do the error checking'''
 
     def move_callback(self, instance):
-        self.initialtape = instance.getInfo()
-        print self.initialtape
-        self.updateTM
+        print "CALL BACK CALLED for move"
+        #TODO -- PASS this info to the TM (preferably as a complete transition)
+        self.parent.general_options.collect_trans_info("move",4,str(self.stateName))
         return False
 
     def newstate_callback(self, instance):
-        self.alphabet = instance.getInfo()
-        print self.alphabet
+
+        print "CALL BACK CALLED __ for new state"
+        print str(self.stateName) + " is the currentStateName"
+        #TO CAN YOU GET THE DRAWING SPACE TO CALL GENERAL OPTIONS???
+        self.parent.general_options.collect_trans_info("newState",3,str(self.stateName))
         return False
 
     def writesym_callback(self, instance):
-        self.alphabet = instance.getInfo()
-        print self.alphabet
+        print "CALL BACK CALLED to write \n-------------------------------\n"
+        self.parent.general_options.collect_trans_info("write",2,str(self.stateName))
+        #TODO -- PASS this info to the TM (preferably as a complete transition)
         return False
 
     def seensym_callback(self, instance):
-        self.alphabet = instance.getInfo()
-        print self.alphabet
+        self.parent.general_options.collect_trans_info("seen",1,str(self.stateName))
+        print "CALL BACK CALLED"
+        #TODO -- PASS this info to the TM (preferably as a complete transition)
+
         return False
 
     def select(self):
@@ -87,7 +92,7 @@ class DraggableWidget(RelativeLayout):
     def translate(self, x, y):
         self.center_x = self.ix = self.ix + x
         self.center_y = self.iy = self.iy + y
-'''might have to fix up this one a bit'''
+    '''might have to fix up this one a bit'''
 
 
     def on_touch_up(self, touch):
@@ -122,11 +127,82 @@ class StateRep(DraggableWidget):
     def goback(self):
         self.r = 1
 
+
+    def printMe(self):
+        print "My details are "
+        print "seen:\t" + self.seen
+        print self.move
+        print self.newState
+        print self.write
+
 class MovePopup(Popup):
-    pass
+    def get_useful_input(self,root,id):
+        print  id.text
+        input = id.text
+        input = input.replace(" ", "")
+        input = input.upper()
+
+        if input == "L" or input == "R":
+            print "YEP that is an L or R"
+            #TODO: send this to the tm
+            root.dismiss()
+        else:
+            id.text= ""
+            id.hint_text = "ERROR: INVALID INPUT ENTERED\nInput must be either L or R\nPLEASE ENTER AGAIN"
+
+
 class NewStatePopup(Popup):
-    pass
+    def RepresentsInt(self,s):
+        try:
+            int(s)
+            if int(s) >= 0:
+                return True
+        except ValueError:
+            return False
+
+
+    def get_useful_input(self,root,id):
+        input = id.text
+        input = input.replace(" ", "")
+        input = input.lower()
+
+        if self.RepresentsInt(input):
+            print "Accepted"
+
+            #TODO: send this to the tm
+            root.dismiss()
+
+        else:
+            id.text= ""
+            id.hint_text = "ERROR: INVALID INPUT ENTERED\nInput must be a state ID\nPLEASE ENTER AGAIN"
+
 class WriteSymPopup(Popup):
-    pass
+    def get_useful_input(self,root,id):
+        input = id.text
+        input = input.replace(" ", "")
+        input = input.lower()
+
+        if len(input) == 1:
+            print "Accepted"
+            #TODO: HEY DAVE, FOR SOME REASON THIS root.dismiss() is not calling the call back... it works for move and newState but not this or seen state.  ???????????
+            root.dismiss()
+
+        else:
+            id.text= ""
+            id.hint_text = "ERROR: INVALID INPUT ENTERED\nInput must be one character from the alphabet\nPLEASE ENTER AGAIN"
+
+
 class SeenSymPopup(Popup):
-    pass
+    def get_useful_input(self,root,id):
+        input = id.text
+        input = input.replace(" ", "")
+        input = input.lower()
+
+        if len(input) == 1:
+            print "Accepted"
+            #TODO: send this to the tm
+            root.dismiss()
+        else:
+            id.text= ""
+            id.hint_text = "ERROR: INVALID INPUT ENTERED\nInput must be one character from the alphabet\nPLEASE ENTER AGAIN"
+

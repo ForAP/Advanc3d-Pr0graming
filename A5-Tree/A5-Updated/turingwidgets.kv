@@ -24,44 +24,50 @@
     size_hint: .5, .5
     auto_dismiss: False
     title: 'Enter Seen Symbol'
+    object: None
     TextInput:
-        id: user_input_initialtape
+        id: user_input_seen
+        hint_text: "Enter Seen Symbol for this transition"
         multiline: False
-        on_text_validate: root.grabInputFromTape(user_input_initialtape.text), root.dismiss()
-        on_focus: user_input_initialtape.background_color=[0.8,1,1,1]
+        on_text_validate: _seensym_popup.object = root.get_useful_input(root,user_input_seen)
+        on_focus: user_input_seen.background_color=[0.8,1,1,1]
 
 <WriteSymPopup>:
     id: _writesym_popup
     size_hint: .5, .5
     auto_dismiss: False
-    title: 'Enter Write Symbol'
+    title: 'Enter Write Symbol for this transition'
     TextInput:
-        id: user_input_initialtape
+        id: user_input_write
+        hint_text: "Enter write Symbol for this transition here"
         multiline: False
-        on_text_validate: root.grabInputFromTape(user_input_initialtape.text), root.dismiss()
-        on_focus: user_input_initialtape.background_color=[0.8,1,1,1]
+        on_text_validate: root.get_useful_input(root,user_input_write)
+        on_focus: user_input_write.background_color=[0.8,1,1,1]
 
 <NewStatePopup>:
     id: _newstate_popup
     size_hint: .5, .5
     auto_dismiss: False
-    title: 'Enter New State'
+    title: 'Enter New State for this transition'
     TextInput:
-        id: user_input_initialtape
+        id: user_input_newState
+        hint_text: "Enter the new state for this transition \n( Use The State ID's) "
         multiline: False
-        on_text_validate: root.grabInputFromTape(user_input_initialtape.text), root.dismiss()
-        on_focus: user_input_initialtape.background_color=[0.8,1,1,1]
+        on_text_validate: root.get_useful_input(root,user_input_newState)
+        on_focus: user_input_newState.background_color=[0.8,1,1,1]
 
 <MovePopup>:
     id: _move_popup
     size_hint: .5, .5
     auto_dismiss: False
-    title: 'Enter direction to move tape'
+    title: 'Enter direction to move tape (Either L or R) for this transition'
     TextInput:
-        id: user_input_initialtape
+        hint_text: "Enter the direction for movement \n(L = Left or R = Right)"
+        id: user_input_move
         multiline: False
-        on_text_validate: root.grabInputFromTape(user_input_initialtape.text), root.dismiss()
-        on_focus: user_input_initialtape.background_color=[0.8,1,1,1]
+        on_text_validate: root.get_useful_input(root,user_input_move)
+        on_focus: user_input_move.background_color=[0.8,1,1,1]
+
 # Color(*get_color_from_hex('ffe354'))
 # Ellipse(pos=(touch_x - 20, touch_y + 20), size=(40,40))
 # Line(circle=(touch_x, touch_y + 40, 30, 0, 360), width=2)
