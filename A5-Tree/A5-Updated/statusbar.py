@@ -15,13 +15,13 @@ class StatusBar(BoxLayout):
         self.msg_label.text = 'Tape: ' + self.parent.general_options.tm.gettape()
 
     def finished(self, halted, finaltape):
-        Clock.schedule_interval(partial(my_callback, halted, finaltape), 10)
+        Clock.schedule_interval(partial(self.my_callback, halted, finaltape), 10)
 
     def my_callback(self, halted, finaltape, *largs):
         self.msg_label.text = halted
-        Clock.schedule_interval(partial(my_callback2, finaltape), 5)
+        Clock.schedule_once(partial(self.my_callback2, finaltape), 5)
 
-    def my_callback(self, finaltape, *largs):
+    def my_callback2(self, finaltape, *largs):
         self.msg_label.text = 'Tape: ' + finaltape
 
         # if value == 0

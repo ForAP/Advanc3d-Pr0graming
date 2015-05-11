@@ -59,6 +59,7 @@ class TuringMachine:
 
     def set_initialstate(self, _state):
         self.initialstate = _state
+        self.currentstate = str(self.initialstate)
 
     def set_finalstates(self, _final):
         self.finalstates.add(_final)

@@ -29,7 +29,7 @@ class GeneralOptions(BoxLayout):
 
     def run_tm(self, instance):
         self.tm.runtohalt()
-        self.statusbar.finished(self.tm.halted, self.tm.finaltape)
+        self.parent.status_bar.finished(self.tm.halted, self.tm.finaltape)
 
     # def clear(self, instance):
     #     self.drawing_space.clear_widgets()
@@ -40,15 +40,15 @@ class GeneralOptions(BoxLayout):
     def set_tape(self,tape):
         self.tm.set_tape_in_TM(tape)
 
+
     def collect_trans_info(self,value,counter,current_state_name):
         self.transInfo.append(value)
+        print self.transInfo
         if counter == 4:
             print "Here we have to actually add the transitions"
-            for state in self.tm.states:
-                print str(state)
-                if str(state) == current_state_name:
-                    print self.tm.getstate()
-                    #state.add_transition(self.transInfo[0],self.transInfo[1],self.transInfo[2],self.transInfo[3])
+            # self.tm.states[current_state_name]
+            self.tm.states[current_state_name].add_transition(self.transInfo[0],self.transInfo[1],self.transInfo[2],self.transInfo[3])
+            self.transInfo = []
 
             print "NOW PRINTING THE LIST"
 
@@ -92,6 +92,7 @@ class GeneralOptions(BoxLayout):
         popup.bind(on_dismiss=self.alphabet_callback)
         popup.open()
 
+
     def tape_callback(self, instance):
         self.initialtape = instance.getInfo()
         self.tm.set_alphabet_in_TM(self.alphabet)
@@ -109,6 +110,7 @@ class GeneralOptions(BoxLayout):
 
         stringAlphabet = "".join(copyOfAlphabet)
         self.tm.set_alphabet_in_TM(stringAlphabet)
+        self.parent.status_bar.counter += 1
         return False
 
     def alphabet_callback(self, instance):
@@ -126,6 +128,7 @@ class GeneralOptions(BoxLayout):
         self.blank = 'b'
         self.drawing_space.clear_widgets()
         self.nameCounter = 0
+        self.transInfo = []
         self.updateTM()
         # p = AlphabetPopup()
         # p.open()
