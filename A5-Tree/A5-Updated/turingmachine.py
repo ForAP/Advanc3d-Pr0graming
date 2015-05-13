@@ -131,7 +131,7 @@ class TuringMachine:
             print "state = ", self.currentstate
             print "tape = ", self.gettape()
             print " "
-        if self.currentstate in self.finalstates:
+        if int(self.currentstate) in self.finalstates:
             self.halted = "halted with answer yes"
         else:
             self.halted = "halted with answer no"
