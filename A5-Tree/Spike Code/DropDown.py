@@ -47,13 +47,15 @@ class HomeScreen(Screen):
         # one last thing, listen for the selection in the dropdown list and
         # assign the data to the button text.
         #dropdown.bind(on_select=lambda instance, x: setattr(mainbutton, 'text', x))
-        dropdown.bind(on_select=lambda instance, x: setattr(mainbutton, 'text', x))
-        #dropdown.bind(on_select=lambda instance, x: setattr(dd_btn, 'text', x))
+
+        # USE THE BELOW CODE TO CALL METHODS FROM THIS CLASS
+        dropdown.bind(on_select=lambda instance, x: self.printMeth(getattr(x,'text',x)))
+
 
         self.top_layout.add_widget(mainbutton)
 
-    def printMeth(self):
-        print "yo"
+    def printMeth(self,b):
+        print "yo\n\n ()()()()() YOU CAN CALL THE tm.parseTuring(%s) Here " % b
 
 
 
