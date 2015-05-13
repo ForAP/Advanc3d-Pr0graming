@@ -43,7 +43,6 @@ class GeneralOptions(BoxLayout):
 
     def collect_trans_info(self,value,counter,current_state_name):
         self.transInfo.append(value)
-        print self.transInfo
         if counter == 4:
             print "Here we have to actually add the transitions"
             # self.tm.states[current_state_name]
@@ -56,8 +55,6 @@ class GeneralOptions(BoxLayout):
 
             for x in self.transInfo:
                 print x
-            self.transInfo = [0]*4
-
             #add_transition(self, seensym, writesym, newstate, move)
 
 
