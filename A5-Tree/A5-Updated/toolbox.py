@@ -26,9 +26,15 @@ class ToolState(ToolButton):
         sm = StateRep(width=48, height=48)
         sm.center = (x,y)
         state = State()
+        print "\nThis is the state that you just created, will you name it?" + str(state)
+        print type(ds.children)
+        print "ds children is " + str(ds.children)
+        print "ds children's length is " + str(len(ds.children))
         self.parent.general_options.add_state(state)
         ds.add_widget(sm)
         ds.children[0].set_state()
+        print "The ds.children is " + str(ds.children[0])
+        ds.children[0]
 
 class ToolTransition(ToolButton):
     def draw(self, ds, x, y):

@@ -27,6 +27,9 @@ class GeneralOptions(BoxLayout):
         self.nameCounter += 1
         print "This state that you just added is:\t" + str(self.tm.states)
         print type(self.tm.states)
+        for x in self.tm.states.iteritems():
+            if x[0] == '0':
+                print "This is the key of the object:\t" + str(x)
 
     def run_tm(self, instance):
         self.tm.runtohalt()
