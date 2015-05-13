@@ -31,6 +31,12 @@ class GeneralOptions(BoxLayout):
         self.tm.runtohalt()
         self.parent.status_bar.finished(self.tm.halted, self.tm.finaltape)
 
+    # This method will be called to step though a turing machine --- Still to implement
+    def step_tm(self, instance):
+        #TODO : still need to write the method in the turingMachine.py and call it below.
+        self.tm.runtohalt()
+        self.parent.status_bar.finished(self.tm.halted, self.tm.finaltape)
+
     # def clear(self, instance):
     #     self.drawing_space.clear_widgets()
 
@@ -58,6 +64,7 @@ class GeneralOptions(BoxLayout):
             #add_transition(self, seensym, writesym, newstate, move)
 
 
+    #This class removes the last State to be made (Pops it if you think like a stack data structure)
     def remove(self, instance):
         ds = self.drawing_space
         if len(ds.children) > 0:
