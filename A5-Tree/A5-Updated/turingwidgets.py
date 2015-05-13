@@ -5,6 +5,8 @@ from kivy.uix.relativelayout import RelativeLayout
 from kivy.uix.popup import Popup
 from kivy.properties import NumericProperty
 from kivy.graphics import Line
+from kivy.graphics import Color,Ellipse
+from kivy.uix.label import Label
 from state import State
 
 class DraggableWidget(RelativeLayout):
@@ -118,6 +120,45 @@ class DraggableWidget(RelativeLayout):
 
 class StateRep(DraggableWidget):
     r = NumericProperty(1)
+
+    #changes a stateRep object Red
+    def redraw_red_accepting(s, *args):
+        print "Redraw method has been activated, changing to red"
+        s.canvas.clear()
+        with s.canvas:
+            Color(s.r, 0, 0, 1)
+            Ellipse(pos = (9,9), size = (30,30))
+        s.add_widget(Label(text="ID:" + str(s.stateName),padding_x=(20), padding_y=(25),halign="right",valign="top"))
+        s.add_widget((Label(text=str("[color=000000]A[/color]"),markup =True)))
+
+    #Changes a stateRep object Blue
+    def redraw_white_initial(s, *args):
+        print "Redraw method has been activated, changing to white"
+        s.canvas.clear()
+        with s.canvas:
+            Color(s.r, 1, 1, 1)
+            Ellipse(pos = (9,9), size = (30,30))
+        s.add_widget(Label(text="ID:" + str(s.stateName),padding_x=(20), padding_y=(25),halign="right",valign="top"))
+        s.add_widget((Label(text=str("[color=000000]I[/color]"),markup =True)))
+        #changes a stateRep object Red
+
+    def redraw_highlight(s, *args):
+        print "Redraw method has been activated, changing to red"
+        s.canvas.clear()
+        with s.canvas:
+            Color(s.r, 0, 1, 1)
+            Ellipse(pos = (9,9), size = (30,30))
+        s.add_widget(Label(text="ID:" + str(s.stateName),padding_x=(20), padding_y=(25),halign="right",valign="top"))
+
+    #this method calls the redraw method above... Not working as we wanted yet.
+    def change_color_please(self,color):
+        if color == "red":
+            self.redraw_red_accepting(self)
+        elif color == "white":
+            self.redraw_white_initial(self)
+        elif color == "highlight":
+            self.redraw_red_highlight(self)
+
 
     def change_r(self, change):
         self.r = change

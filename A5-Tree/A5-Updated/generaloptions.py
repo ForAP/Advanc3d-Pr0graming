@@ -22,14 +22,49 @@ class GeneralOptions(BoxLayout):
     nameCounter = 0
     transInfo = []
 
+    ##This method will change the color of states, it uses negative indices.  Just pass it the ID of the state that you
+    # want changes and it will display it as a start/initial state!
+    def change_state_color_to_initial(self,stateId):
+        #increment the state ID for accessing list purposes
+        id = stateId + 1
+        #define ds to equal the drawing space
+        ds = self.drawing_space
+
+        #check is valid
+        if self.check_id_valid_for_color_change(id,ds) == True:
+            ds.children[-id].change_color_please("white")
+    ##This method will change the color of states, it uses negative indices.  Just pass it the ID of the state that you
+    # want changes and it will display it as a final/accepting state!
+    def change_state_color_to_final(self,stateId):
+        #increment the state ID for accessing list purposes
+        id = stateId + 1
+        #define ds to equal the drawing space
+        ds = self.drawing_space
+
+        #check is valid
+        if self.check_id_valid_for_color_change(id,ds) == True:
+            ds.children[-id].change_color_please("red")
+
+    ##
+    ##Checks that the state ID that was passed in is a valid ID and it is actually part of the list. If not no action
+    # will be taken
+    def check_id_valid_for_color_change(self,id,ds):
+        #checks the length and makes sure that the requested state exists
+        if len(ds.children) > 0 and id <= len(ds.children):
+            return True
+        else:
+            return False
+
+
+
     def add_state(self, state):
         self.tm.addstate(str(self.nameCounter), state)
         self.nameCounter += 1
-        print "This state that you just added is:\t" + str(self.tm.states)
-        print type(self.tm.states)
-        for x in self.tm.states.iteritems():
-            if x[0] == '0':
-                print "This is the key of the object:\t" + str(x)
+
+        ##TODO Remove below line THESE ARE FOR TESTING PURPOSES [ SEE HERE DAVE ]
+        self.change_state_color_to_final(5)
+        self.change_state_color_to_initial(3)
+
 
     def run_tm(self, instance):
         self.tm.runtohalt()
@@ -38,7 +73,7 @@ class GeneralOptions(BoxLayout):
     # This method will be called to step though a turing machine --- Still to implement
     def step_tm(self, instance):
         #TODO : still need to write the method in the turingMachine.py and call it below.
-        self.tm.runtohalt()
+
         self.parent.status_bar.finished(self.tm.halted, self.tm.finaltape)
 
     # def clear(self, instance):
