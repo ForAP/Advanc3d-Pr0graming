@@ -37,9 +37,17 @@ class ToolState(ToolButton):
         ds.add_widget(sm)
         ds.children[0].set_state()
 
+        #if len(ds.children) > 2:
+        #    tool = ToolTransition()
+        #    tool.draw(ds,ds.children[-1],ds.children[-2])
+
+
 class ToolTransition(ToolButton):
-    def draw(self, ds, x, y):
-        pass
+
+    #still to test and fix...
+    def draw(self, ds,objectOne,objectTwo):
+        d = DraggableWidget()
+        d.draw_transition(objectOne,objectTwo)
 
     def on_touch_down(self, touch):
         ds = self.parent.drawing_space

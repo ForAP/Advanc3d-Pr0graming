@@ -5,8 +5,6 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.popup import Popup
 from kivy.properties import NumericProperty, ListProperty
 from turingmachine import TuringMachine
-from transition import Transition
-from state import State
 
 class GeneralOptions(BoxLayout):
     set_state = False
@@ -70,10 +68,12 @@ class GeneralOptions(BoxLayout):
         #Here are a few methods that I whacked together. Just have a look. They are only activated when a new touch is called
         #You can change the trigger or at least we should. (The base methods are in the turingwidgets.py class. but these can
         #be called from anywhere
-        self.change_state_color_to_final(5)
-        self.change_state_color_to_initial(3)
-        self.get_state_rep_location(3)
-        self.get_state_rep_location(4)
+        self.change_state_color_to_final(3)
+        self.change_state_color_to_initial(0)
+        #There is also a highlight method in turingWidgets.py but I haven't implemented one for generaloptions yet.
+        self.get_state_rep_location(1)
+        print self.get_state_rep_location(4)
+        #Also still need to be able to change the states back after we change the color etc... just need to edit the color in the code..
 
 
 

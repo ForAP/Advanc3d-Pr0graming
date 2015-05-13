@@ -110,8 +110,18 @@ class DraggableWidget(RelativeLayout):
             self.unselect()
         return super(DraggableWidget, self).on_touch_up(touch)
 
-    # def do_transition(self):
-    #
+    #need to pass this two objects from ds.child[], the objects need to be StateRep objects to work
+    def draw_transition(self, stateRepOne, stateRepTwo):
+        posOfOne = stateRepOne.get_local
+        postOfTwo = stateRepTwo.get_local
+
+        #draw
+        with self.canvas:
+            d = 50
+            #touch.ud["line"] = Line(points=(touch.x,touch.y))
+            Line(points=(posOfOne[0], posOfOne[1], postOfTwo[0], postOfTwo[1]))
+
+
 
     def unselect(self):
         if self.selected:
