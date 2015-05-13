@@ -136,6 +136,8 @@ class TuringMachine:
         else:
             self.halted = "halted with answer no"
         self.finaltape = self.gettape()
+        self.currentstate = self.initialstate
+        
 
 
 def parseTuringMachine(infile):

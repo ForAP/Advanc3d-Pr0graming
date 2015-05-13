@@ -17,6 +17,7 @@ class StatusBar(BoxLayout):
     def finished(self, halted, finaltape):
         self.my_callback(halted, finaltape)
         Clock.schedule_interval(partial(self.my_callback, halted, finaltape), 10)
+        self.counter = 0
 
     def my_callback(self, halted, finaltape, *largs):
         self.msg_label.text = halted
