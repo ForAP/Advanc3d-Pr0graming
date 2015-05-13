@@ -37,15 +37,6 @@ class ToolState(ToolButton):
         ds.add_widget(sm)
         ds.children[0].set_state()
 
-        ##TODO --------------------------------------------------
-        ##TODO DAVE -- The reason that ds.children[0] works is because the way dictionaries work. They add to the front rather then the last
-        ##TODO         so this means that we are colling the object (StateRep) with the key in spot [0] which is the last one... Below changes the colors
-        ##TODO         IMPORTANT: to access individual objects we need to know either the key (state name) or reverse the order.... but I advise the first one
-        ##TODO         We need to somehow work out a way to add transtions, and when we do that not to add them with keys like 1, 2, 3 etc but maybe t1,t2 etc...
-        ##             SO close man
-        ##TODO --------------------------------------------------
-        #ds.children[0].change_color_please("red")
-
 class ToolTransition(ToolButton):
     def draw(self, ds, x, y):
         pass

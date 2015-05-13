@@ -31,7 +31,7 @@ class GeneralOptions(BoxLayout):
         ds = self.drawing_space
 
         #check is valid
-        if self.check_id_valid_for_color_change(id,ds) == True:
+        if self.check_id_valid_for_accessing_ds(id,ds) == True:
             ds.children[-id].change_color_please("white")
     ##This method will change the color of states, it uses negative indices.  Just pass it the ID of the state that you
     # want changes and it will display it as a final/accepting state!
@@ -42,28 +42,39 @@ class GeneralOptions(BoxLayout):
         ds = self.drawing_space
 
         #check is valid
-        if self.check_id_valid_for_color_change(id,ds) == True:
+        if self.check_id_valid_for_accessing_ds(id,ds) == True:
             ds.children[-id].change_color_please("red")
-
-    ##
     ##Checks that the state ID that was passed in is a valid ID and it is actually part of the list. If not no action
     # will be taken
-    def check_id_valid_for_color_change(self,id,ds):
+    def check_id_valid_for_accessing_ds(self,id,ds):
         #checks the length and makes sure that the requested state exists
         if len(ds.children) > 0 and id <= len(ds.children):
             return True
         else:
             return False
 
-
+    def get_state_rep_location(self,stateId):
+        #increment the state ID for accessing list purposes
+        id = stateId + 1
+        #define ds to equal the drawing space
+        ds = self.drawing_space
+        #check is valid
+        if self.check_id_valid_for_accessing_ds(id,ds) == True:
+            return (ds.children[-id].get_local())
 
     def add_state(self, state):
         self.tm.addstate(str(self.nameCounter), state)
         self.nameCounter += 1
 
         ##TODO Remove below line THESE ARE FOR TESTING PURPOSES [ SEE HERE DAVE ]
+        #Here are a few methods that I whacked together. Just have a look. They are only activated when a new touch is called
+        #You can change the trigger or at least we should. (The base methods are in the turingwidgets.py class. but these can
+        #be called from anywhere
         self.change_state_color_to_final(5)
         self.change_state_color_to_initial(3)
+        self.get_state_rep_location(3)
+        self.get_state_rep_location(4)
+
 
 
     def run_tm(self, instance):

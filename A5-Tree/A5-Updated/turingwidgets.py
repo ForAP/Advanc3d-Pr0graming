@@ -121,6 +121,13 @@ class DraggableWidget(RelativeLayout):
 class StateRep(DraggableWidget):
     r = NumericProperty(1)
 
+    def get_local(self):
+        print "--------------------------"
+        print "x value:\t" + str(self.x)
+        print "y value:\t"+str(self.y)
+        print "--------------------------\n\n"
+        return self.pos
+
     #changes a stateRep object Red
     def redraw_red_accepting(s, *args):
         print "Redraw method has been activated, changing to red"
