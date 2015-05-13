@@ -12,6 +12,7 @@ from transition import Transition
 from state import State
 from tape import Tape
 
+
 # experimental code, commented out.
 ##class noTransition(Exception):
 ##    '''Class to represent a
@@ -21,6 +22,9 @@ from tape import Tape
 
 class TuringMachine:
     '''Class to represent a Turing machine'''
+
+
+
 
     def __init__(self, alphabet, initialstate, initialtape, finalstates, blank):
         '''Construct a Turing machine

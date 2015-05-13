@@ -25,7 +25,8 @@ class GeneralOptions(BoxLayout):
     def add_state(self, state):
         self.tm.addstate(str(self.nameCounter), state)
         self.nameCounter += 1
-        print self.tm.states
+        print "This state that you just added is:\t" + str(self.tm.states)
+        print type(self.tm.states)
 
     def run_tm(self, instance):
         self.tm.runtohalt()
@@ -56,8 +57,6 @@ class GeneralOptions(BoxLayout):
             self.transInfo = []
 
             print "NOW PRINTING THE LIST"
-
-            #call back to write and seen not shown???
 
             for x in self.transInfo:
                 print x
@@ -159,6 +158,7 @@ class TapePopup(Popup):
     def getInfo(self):
         return self.initialtape
 
+    #get the input of the user input.
     def grabInputFromTape(self, tape):
         #remove the spaces
         tape = tape.replace(" ", "")
