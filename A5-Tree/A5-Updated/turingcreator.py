@@ -11,6 +11,8 @@ Builder.load_file('drawingspace.kv')
 Builder.load_file('statusbar.kv')
 Builder.load_file('generaloptions.kv')
 Builder.load_file('turingcreator.kv')
+Builder.load_file('aboutTMs.kv')
+Builder.load_file('InstructionScreen.kv')
 Builder.load_file('homescreen.kv')
 
 class TuringScreenManager(ScreenManager):

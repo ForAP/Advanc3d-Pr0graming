@@ -1,0 +1,32 @@
+#:import homescreen homescreen
+
+<InstructionScreen@Screen>:
+    canvas:
+        Color:
+            rgb: (0.7, 0.1,0.2)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    name: 'instruction_screen'
+    id: "Instruction_screen"
+    FloatLayout:
+    Label:
+        text: "Instructions for use"
+        font_size: 30
+        center_y: root.height/2
+
+    Button:
+        background_color: [0.8,0.1,0.3,1]
+        font_size: 20
+        size_hint: 0.2,0.1
+        text: "< Back to home"
+        on_press: app.root.current = 'homescreen'
+        pos_hint: {"left" : 1, "top" : 1}
+
+    Button:
+        background_color: [0.8,0.1,0.3,1]
+        font_size: 20
+        size_hint: 0.2,0.1
+        text: "About TM's >"
+        on_press: app.root.current = 'about_screen'
+        pos_hint: {"right" : 1, "top" : 1}
