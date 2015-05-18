@@ -30,3 +30,17 @@
         text: "Instructions >"
         on_press: app.root.current = 'instruction_screen'
         pos_hint: {"right" : 1, "top" : 1}
+
+
+
+    ScrollView:
+        size_hint: None, None
+        size: 500, 320
+        pos_hint: {'center_x': .5, 'center_y': .5}
+
+        Image:
+            source:"TuringMachinesExplaied.png"
+            keep_ratio_x: False
+            allow_stretch: True
+            do_scroll_x: False
+            size: self.width,self.height
