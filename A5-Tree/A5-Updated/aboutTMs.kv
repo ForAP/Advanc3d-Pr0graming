@@ -9,38 +9,61 @@
             size: self.size
     name: 'about_screen'
     id: "about_screen"
+
     FloatLayout:
-    Label:
-        text: "About Turing Machines"
-        font_size: 30
-        center_y: root.height/2
+        Button:
+            id: home_button
+            background_color: [0.8,0.1,0.3,1]
+            font_size: 20
+            size_hint: 0.2,0.1
+            text: "< Back to home"
+            on_press: app.root.current = 'homescreen'
+            pos_hint: {"left" : 1, "top" : 1}
+        Label:
+            text: "About Turing Machines"
+            font_size: 35
+            center_y: home_button.y +20
+        Button:
+            background_color: [0.8,0.1,0.3,1]
+            font_size: 20
+            size_hint: 0.2,0.1
+            text: "Instructions >"
+            on_press: app.root.current = 'instruction_screen'
+            pos_hint: {"right" : 1, "top" : 1}
 
-    Button:
-        background_color: [0.8,0.1,0.3,1]
-        font_size: 20
-        size_hint: 0.2,0.1
-        text: "< Back to home"
-        on_press: app.root.current = 'homescreen'
-        pos_hint: {"left" : 1, "top" : 1}
+        ScrollView:
+            size_hint_y: None
+            size_hint_y: 0.9
+#            Label:
+#                text: str("Some long this\t Ya dawg -------- Thirsty")*30
+#                font_size: 50
+#                text_size: self.width, None
+#                size_hint_y: None
+#                height: self.texture_size[1]
 
-    Button:
-        background_color: [0.8,0.1,0.3,1]
-        font_size: 20
-        size_hint: 0.2,0.1
-        text: "Instructions >"
-        on_press: app.root.current = 'instruction_screen'
-        pos_hint: {"right" : 1, "top" : 1}
+            Image:
+                source:"TuringMachinesExplaied.png"
+                allow_stretch: True
+                size_hint_y: None
+                height: self.texture_size[1]
+                keep_ratio: False
 
 
-
-    ScrollView:
-        size_hint: None, None
-        size: 500, 320
-        pos_hint: {'center_x': .5, 'center_y': .5}
-
-        Image:
-            source:"TuringMachinesExplaied.png"
-            keep_ratio_x: False
-            allow_stretch: True
-            do_scroll_x: False
-            size: self.width,self.height
+#############THIS BELOW IS A LEGIT FILE PICKER! Run it and check it out
+#    BoxLayout:
+#        size: root.size
+#        pos: root.pos
+#        orientation: "vertical"
+#        ListView:
+#            id: filechooser
+#
+#        BoxLayout:
+#            size_hint_y: None
+#            height: 30
+#            Button:
+#                text: "Cancel"
+#                on_release: root.cancel()
+#
+#            Button:
+#                text: "Load"
+#                on_release: root.load(filechooser.path, filechooser.selection)
