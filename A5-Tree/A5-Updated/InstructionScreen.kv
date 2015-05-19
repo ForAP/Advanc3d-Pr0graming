@@ -10,23 +10,37 @@
     name: 'instruction_screen'
     id: "Instruction_screen"
     FloatLayout:
-    Label:
-        text: "Instructions for use"
-        font_size: 30
-        center_y: root.height/2
 
-    Button:
-        background_color: [0.8,0.1,0.3,1]
-        font_size: 20
-        size_hint: 0.2,0.1
-        text: "< Back to home"
-        on_press: app.root.current = 'homescreen'
-        pos_hint: {"left" : 1, "top" : 1}
+        Button:
+            id: home_button_instruc
+            background_color: [0.8,0.1,0.3,1]
+            font_size: 20
+            size_hint: 0.2,0.1
+            text: "< Back to home"
+            on_press: app.root.current = 'homescreen'
+            pos_hint: {"left" : 1, "top" : 1}
+        Label:
+            text: "Instructions for use"
+            font_size: 30
+            center_y: home_button_instruc.y +20
+        Button:
+            background_color: [0.8,0.1,0.3,1]
+            font_size: 20
+            size_hint: 0.2,0.1
+            text: "About TM's >"
+            on_press: app.root.current = 'about_screen'
+            pos_hint: {"right" : 1, "top" : 1}
 
-    Button:
-        background_color: [0.8,0.1,0.3,1]
-        font_size: 20
-        size_hint: 0.2,0.1
-        text: "About TM's >"
-        on_press: app.root.current = 'about_screen'
-        pos_hint: {"right" : 1, "top" : 1}
+        ScrollView:
+            size_hint_y: None
+            size_hint_y: 0.9
+            Label:
+                text: str("[b][color=cb9999][size=25]To Create a new Turing Machine[/size][/color][/b]\n -  Select the 'start' button from the home screen.\n\n[b][color=cb9999][size=25]To add a state:[/size][/color][/b]\n - click the top left hand button 'Add t'\n - click on the screen\n - The state will be created and displayed!\n\n[b][color=cb9999][size=25]To add a Transition:[/size][/color][/b]\n -Select the 'Add T' button in the top right \n - Double click on a state\n - Fill out the requested information\n\n[b][color=cb9999][size=25]To run the TM:[/size][/color][/b]\n - Select the 'run TM' button in the bottom of the main screen\n\n[b][color=cb9999][size=25]To add a state as an initial state:[/size][/color][/b]\n - Click the 'Set Initial State' button on the bottom button bar\n - Click on a state\n - The State is now an initial state\n\n[b][color=cb9999][size=25]To add a state as a final state:[/size][/color][/b]\n - Click on the 'Set Final States' button in the bottom button bar\n - Click on a state on the screen\n - It is now added \n\n[b][color=cb9999][size=25]To reset a TM and start again:[/size][/color][/b]\n -  Click on the 'Clear TM' button on the bottom button bar \n\n[b][color=cb9999][size=25]To remove the last added state:[/size][/color][/b]\n -Click on the 'Clear TM' button on the bottom button bar ")
+                markup: True
+                font_size: 20
+                text_size: self.width, None
+                size_hint_y: None
+                height: self.texture_size[1]
+
+
+
