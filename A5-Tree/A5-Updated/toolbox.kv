@@ -1,16 +1,16 @@
 # File name: toolbox.kv
 #:kivy 1.7.0
 #:import toolbox toolbox
-<ToolButton>:
-    size_hint: None,None
-    size: 48,48
-    group: 'tool'
-    canvas:
-        PushMatrix:
-        Translate:
-            xy: self.x,self.y
-    canvas.after:
-        PopMatrix:
+# <ToolButton>:
+#     size_hint: None,None
+#     size: 48,48
+#     group: 'tool'
+#     canvas:
+#         PushMatrix:
+#         Translate:
+#             xy: self.x,self.y
+#     canvas.after:
+#         PopMatrix:
 
 <ToolBox@GridLayout>:
     cols: 1
@@ -19,11 +19,28 @@
     tool_transition: _tool_transition
     ToolState:
         id: _tool_state
+        canvas:
+            PushMatrix:
+            Translate:
+                xy: self.x,self.y
+        canvas.after:
+            PopMatrix:
         StateRep:
             pos_hint: {'center_x':.5,'center_y':.5}
     ToolTransition:
         id:  _tool_transition
         colour: .8,.9,0,1
+        canvas:
+            PushMatrix:
+            Translate:
+                xy: self.x,self.y
+        canvas.after:
+            PopMatrix:
         Label:
             text: 'Add T'
             pos: -25,-25
+
+<Transition>:
+    canvas:
+        Line:
+            Bezier:

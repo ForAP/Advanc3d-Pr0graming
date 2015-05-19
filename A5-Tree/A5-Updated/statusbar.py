@@ -17,17 +17,12 @@ class StatusBar(BoxLayout):
         self.msg_label1.text = "Current State: " + currentstate
         self.msg_label2.text = "Tape: " + currenttape
 
-    # def paused(self):
-    #     if self.paused = True:
-    #         self.paused = False
-    #     else:
-    #         self.paused = True
+    def pausechange(self, bool1):
+        self.paused = bool1
+        print self.paused
 
-    # def next_step(self):
-    #     if self.nextstep = True:
-    #         self.nextstep = False
-    #     else:
-    #         self.nextstep = True
+    def nextchange(self):
+        self.parent.general_options.step_tm()
 
     def finished(self, halted, finaltape):
         self.msg_label1.text = halted

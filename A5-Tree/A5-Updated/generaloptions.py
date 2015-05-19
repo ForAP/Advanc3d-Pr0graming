@@ -20,6 +20,7 @@ class GeneralOptions(BoxLayout):
     tm = TuringMachine(alphabet, initialstate, initialtape, finalstates, blank)
     nameCounter = 0
     transInfo = []
+    transitionCounter = 0
 
     ##This method will change the color of states, it uses negative indices.  Just pass it the ID of the state that you
     # want changes and it will display it as a start/initial state!
@@ -31,7 +32,7 @@ class GeneralOptions(BoxLayout):
 
         #check is valid
         if self.check_id_valid_for_accessing_ds(id,ds) == True:
-            ds.children[-id].change_color_please("white")
+            ds.children[-id-self.transition].change_color_please("white")
     ##This method will change the color of states, it uses negative indices.  Just pass it the ID of the state that you
     # want changes and it will display it as a final/accepting state!
     def change_state_color_to_final(self,stateId):
@@ -88,34 +89,34 @@ class GeneralOptions(BoxLayout):
         print " "
         steps = 0
         sb = self.parent.status_bar
+        if sb.paused == True:
+            self.step_tm()
+            return
         while self.tm.step():
             steps += 1
             print "steps = ", steps
             print "state = ", self.tm.currentstate
             print "tape = ", self.tm.gettape()
             print " "
-            if sb.paused = True:
-
-            sb.stepthrough(self.tm.currentstate, self.tm.gettape())
-            time.sleep(1)
         if int(self.tm.currentstate) in self.tm.finalstates:
             self.halted = "halted with answer yes"
         else:
             self.halted = "halted with answer no"
-        self.finaltape = self.gettape()
-        self.currentstate = self.initialstate
-        sb.finished(self.halted, self.tm.finaltape)
-    def wait_until(somepredicate, timeout, period=0.25, *args, **kwargs):
-        mustend = time.time() + timeout
-        while time.time() < mustend:
-        if somepredicate(*args, **kwargs): return True
-        time.sleep(period)
-        return False
-    # This method will be called to step though a turing machine --- Still to implement
-    def step_tm(self, instance):
-        #TODO : still need to write the method in the turingMachine.py and call it below.
+        self.finaltape = self.tm.gettape()
+        sb.finished(self.halted, self.finaltape)
 
-        self.parent.status_bar.finished(self.tm.halted, self.tm.finaltape)
+    # This method will be called to step though a turing machine --- Still to implement
+    def step_tm(self):
+        #TODO : still need to write the method in the turingMachine.py and call it below.
+        sb = self.parent.status_bar
+        if self.tm.step() == True:
+            sb.stepthrough(self.tm.currentstate, self.tm.gettape())
+        else:
+            if int(self.tm.currentstate) in self.tm.finalstates:
+                self.halted = "halted with answer yes"
+            else:
+                self.halted = "halted with answer no"
+            sb.finished(self.tm.halted, self.tm.finaltape)
 
     # def clear(self, instance):
     #     self.drawing_space.clear_widgets()
@@ -192,7 +193,6 @@ class GeneralOptions(BoxLayout):
 
         stringAlphabet = "".join(copyOfAlphabet)
         self.tm.set_alphabet_in_TM(stringAlphabet)
-        self.parent.status_bar.counter += 1
         return False
 
     def alphabet_callback(self, instance):

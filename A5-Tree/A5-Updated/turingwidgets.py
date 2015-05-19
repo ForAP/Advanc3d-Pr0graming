@@ -58,7 +58,9 @@ class DraggableWidget(RelativeLayout):
         print "CALL BACK CALLED __ for new state"
         print str(self.stateName) + " is the currentStateName"
         #TO CAN YOU GET THE DRAWING SPACE TO CALL GENERAL OPTIONS???
-        self.parent.general_options.collect_trans_info(instance.getInfo(),3,str(self.stateName))
+        nextState = instance.getInfo()
+        self.parent.general_options.collect_trans_info(nextState,3,str(self.stateName))
+        self.parent.tool_box.tool_transition.draw(self.stateName, nextState)
         return False
 
     def writesym_callback(self, instance):
@@ -111,17 +113,6 @@ class DraggableWidget(RelativeLayout):
         return super(DraggableWidget, self).on_touch_up(touch)
 
     #need to pass this two objects from ds.child[], the objects need to be StateRep objects to work
-    def draw_transition(self, stateRepOne, stateRepTwo):
-        posOfOne = stateRepOne.get_local
-        postOfTwo = stateRepTwo.get_local
-
-        #draw
-        with self.canvas:
-            d = 50
-            #touch.ud["line"] = Line(points=(touch.x,touch.y))
-            Line(points=(posOfOne[0], posOfOne[1], postOfTwo[0], postOfTwo[1]))
-
-
 
     def unselect(self):
         if self.selected:

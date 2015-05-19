@@ -3,8 +3,12 @@
 <TuringCreator@Screen>:
     name: 'turingscreen'
     AnchorLayout:
-        anchor_x: 'left'
         anchor_y: 'top'
+        ActionBar:
+            id: _action_bar
+    AnchorLayout:
+        anchor_x: 'left'
+        anchor_y: 'center'
         ToolBox:
             id: _tool_box
             drawing_space: _drawing_space
@@ -22,6 +26,7 @@
             status_bar: _status_bar
             general_options: _general_options
             tool_box: _tool_box
+            action_bar: _action_bar
             size_hint: None,None
             width: root.width - _tool_box.width
             height: root.height - _general_options.height - _status_bar.height
@@ -42,4 +47,4 @@
             StatusBar:
                 id: _status_bar
                 size_hint: 1,None
-                height: 100 
+                height: 100

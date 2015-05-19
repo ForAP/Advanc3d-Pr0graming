@@ -14,6 +14,7 @@ Builder.load_file('turingcreator.kv')
 Builder.load_file('aboutTMs.kv')
 Builder.load_file('InstructionScreen.kv')
 Builder.load_file('homescreen.kv')
+Builder.load_file('actionbar.kv')
 
 class TuringScreenManager(ScreenManager):
     pass
