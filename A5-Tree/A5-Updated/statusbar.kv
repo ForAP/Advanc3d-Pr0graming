@@ -2,8 +2,29 @@
 #:kivy 1.7.0
 #:import statusbar statusbar
 <StatusBar>:
-    msg_label: _msg_label
-    orientation: 'horizontal'
+    msg_label1: _msg_label1
+    msg_label2: _msg_label2
+    orientation: 'vertical'
+    BoxLayout:
+        Button:
+            id: move_back
+            text: '<'
+        ToggleButton:
+            id: pause
+            text: 'Pause'
+            on_press: self.paused = True
+            on_release: self.paused = False
+        Button:
+            id: move_forward
+            text: '>'
+            on_press: self.paused = True, self.nextstep = True
     Label:
-        id: _msg_label
+        id: _msg_label1
         text: "Turing Machine Started"
+    ScrollView:
+    #can't get this to scroll
+        do_scroll_y: False
+        Label:
+            size_hint_x: None
+            id: _msg_label2
+            text: "Tape:"

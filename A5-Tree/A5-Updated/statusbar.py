@@ -2,35 +2,33 @@
 import kivy
 kivy.require('1.7.0')
 from kivy.uix.boxlayout import BoxLayout
-from kivy.properties import NumericProperty, ObjectProperty, StringProperty
+from kivy.uix.togglebutton import ToggleButton
+from kivy.effects.scroll import ScrollEffect
+from kivy.properties import StringProperty, BooleanProperty
 from kivy.clock import Clock
 from functools import partial
 
 class StatusBar(BoxLayout):
     tape = StringProperty('')
-    counter = NumericProperty(0)
-    previous_counter = 0
+    nextstep = BooleanProperty(False)
+    paused = BooleanProperty(False)
 
-    def on_counter(self, instance, value):
-        self.msg_label.text = 'Tape: ' + self.parent.general_options.tm.gettape()
+    def stepthrough(self, currentstate, currenttape):
+        self.msg_label1.text = "Current State: " + currentstate
+        self.msg_label2.text = "Tape: " + currenttape
+
+    # def paused(self):
+    #     if self.paused = True:
+    #         self.paused = False
+    #     else:
+    #         self.paused = True
+
+    # def next_step(self):
+    #     if self.nextstep = True:
+    #         self.nextstep = False
+    #     else:
+    #         self.nextstep = True
 
     def finished(self, halted, finaltape):
-        self.my_callback(halted, finaltape)
-        Clock.schedule_interval(partial(self.my_callback, halted, finaltape), 10)
-        self.counter = 0
-
-    def my_callback(self, halted, finaltape, *largs):
-        self.msg_label.text = halted
-        Clock.schedule_once(partial(self.my_callback2, finaltape), 5)
-
-    def my_callback2(self, finaltape, *largs):
-        self.msg_label.text = 'Tape: ' + finaltape
-
-        # if value == 0
-        #     self.msg_label.text = "TM cleared"
-        # elif value - 1 == self.__class__.previous_counter:
-        #     self.msg_label.text = self.parent.general_options.test()
-        # elif value + 1 == StatusBar.previous_counter:
-        #     self.msg_label.text = "State removed"
-        # self.__class__.previous_counter = value
-        # tape = self.parent.general_options.tm.gettape()
+        self.msg_label1.text = halted
+        self.msg_label2.text = "Tape" + finaltape

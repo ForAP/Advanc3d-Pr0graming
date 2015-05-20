@@ -120,30 +120,6 @@ class TuringMachine:
 
         return True
 
-    def runtohalt(self):
-        '''Run the machine to completion.  Prints an execution trace
-        Returns:
-            nothing
-        '''
-        print "initial state=", self.currentstate
-        print "initial tape=", self.gettape()
-        print " "
-        steps = 0
-        while self.step():
-            steps += 1
-            print "steps = ", steps
-            print "state = ", self.currentstate
-            print "tape = ", self.gettape()
-            print " "
-        if int(self.currentstate) in self.finalstates:
-            self.halted = "halted with answer yes"
-        else:
-            self.halted = "halted with answer no"
-        self.finaltape = self.gettape()
-        self.currentstate = self.initialstate
-        
-
-
 def parseTuringMachine(infile):
     '''Parses a Turing machine from an XML file
 

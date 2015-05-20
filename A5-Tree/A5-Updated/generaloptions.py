@@ -5,6 +5,7 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.popup import Popup
 from kivy.properties import NumericProperty, ListProperty
 from turingmachine import TuringMachine
+import time
 
 class GeneralOptions(BoxLayout):
     set_state = False
@@ -78,9 +79,38 @@ class GeneralOptions(BoxLayout):
 
 
     def run_tm(self, instance):
-        self.tm.runtohalt()
-        self.parent.status_bar.finished(self.tm.halted, self.tm.finaltape)
+        '''Run the machine to completion.  Prints an execution trace
+        Returns:
+            nothing
+        '''
+        print "initial state=", self.tm.currentstate
+        print "initial tape=", self.tm.gettape()
+        print " "
+        steps = 0
+        sb = self.parent.status_bar
+        while self.tm.step():
+            steps += 1
+            print "steps = ", steps
+            print "state = ", self.tm.currentstate
+            print "tape = ", self.tm.gettape()
+            print " "
+            if sb.paused = True:
 
+            sb.stepthrough(self.tm.currentstate, self.tm.gettape())
+            time.sleep(1)
+        if int(self.tm.currentstate) in self.tm.finalstates:
+            self.halted = "halted with answer yes"
+        else:
+            self.halted = "halted with answer no"
+        self.finaltape = self.gettape()
+        self.currentstate = self.initialstate
+        sb.finished(self.halted, self.tm.finaltape)
+    def wait_until(somepredicate, timeout, period=0.25, *args, **kwargs):
+        mustend = time.time() + timeout
+        while time.time() < mustend:
+        if somepredicate(*args, **kwargs): return True
+        time.sleep(period)
+        return False
     # This method will be called to step though a turing machine --- Still to implement
     def step_tm(self, instance):
         #TODO : still need to write the method in the turingMachine.py and call it below.
