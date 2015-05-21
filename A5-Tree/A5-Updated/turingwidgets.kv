@@ -10,8 +10,7 @@
     # pos_hint: {'center_x':1,'center_y':.5}
     canvas:
         Color:
-            #This value below determines the color of the states
-            rgb: (255,165,0)
+            rgba: self.r, self.g, self.b, self.a
         PushMatrix
         Ellipse:
             size: 30,30
@@ -21,6 +20,31 @@
     Label:
         id: _state_label
         text: 'ID:' + str(root.stateName)
+    # on_pos: root.reposition()
+
+<Transition1>
+    canvas:
+        Color:
+            rgba: self.r, self.g, self.b, self.a
+        Line:
+            circle: self.state.center_x-30, self.state.center_y, 20
+    Label:
+        id: _transition_label
+        pos: root.state.pos[0]-100, root.state.center_y
+        text: root.t_label
+
+<Transition2>
+    canvas:
+        Color:
+            rgba: self.r, self.g, self.b, self.a
+        Line:
+            points: self.state1.center_x, self.state1.center_y,self.state2.center_x, self.state2.center_y
+            width: 1
+    Label:
+        id: _transition_label
+        pos: root.state1.center_x-((root.state1.center_x-root.state2.center_x)/3), root.state1.center_y+((root.state1.center_y-root.state2.center_y)/3)
+        text: root.t_label
+
 
 <SeenSymPopup>:
     id: _seensym_popup

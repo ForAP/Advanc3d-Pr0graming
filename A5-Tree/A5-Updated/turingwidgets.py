@@ -3,8 +3,8 @@ import kivy
 kivy.require('1.7.0')
 from kivy.uix.relativelayout import RelativeLayout
 from kivy.uix.popup import Popup
-from kivy.properties import NumericProperty
-from kivy.graphics import Line
+from kivy.properties import NumericProperty, StringProperty, ObjectProperty
+from kivy.graphics import Line, Bezier
 from kivy.graphics import Color,Ellipse
 from kivy.uix.label import Label
 from state import State
@@ -23,7 +23,7 @@ class DraggableWidget(RelativeLayout):
 
     def on_touch_down(self, touch):
         # double tap to add transitions to a tm directly
-        if touch.is_double_tap and self.collide_point(touch.x, touch.y):
+        if touch.is_double_tap and self.collide_point(touch.x, touch.y) and self.parent.tool_box.tool_transition.state == 'down':
             self.transition_popups()
         if self.collide_point(touch.x, touch.y):
             self.touched = True
@@ -60,7 +60,6 @@ class DraggableWidget(RelativeLayout):
         #TO CAN YOU GET THE DRAWING SPACE TO CALL GENERAL OPTIONS???
         nextState = instance.getInfo()
         self.parent.general_options.collect_trans_info(nextState,3,str(self.stateName))
-        self.parent.tool_box.tool_transition.draw(self.stateName, nextState)
         return False
 
     def writesym_callback(self, instance):
@@ -121,52 +120,50 @@ class DraggableWidget(RelativeLayout):
 
 class StateRep(DraggableWidget):
     r = NumericProperty(1)
+    g = NumericProperty(1)
+    b = NumericProperty(1)
+    a = NumericProperty(1)
 
     def get_local(self):
         print "--------------------------"
         print "x value:\t" + str(self.x)
         print "y value:\t"+str(self.y)
         print "--------------------------\n\n"
-        return self.pos
+        return [self.center_x, self.center_y]
 
     #changes a stateRep object Red
-    def redraw_red_accepting(s, *args):
+    def redraw_red_accepting(self, *args):
         print "Redraw method has been activated, changing to red"
-        s.canvas.clear()
-        with s.canvas:
-            Color(s.r, 0, 0, 1)
-            Ellipse(pos = (9,9), size = (30,30))
-        s.add_widget(Label(text="ID:" + str(s.stateName),padding_x=(20), padding_y=(25),halign="right",valign="top"))
-        s.add_widget((Label(text=str("[color=000000]A[/color]"),markup =True)))
+        self.r = 1
+        self.g = 0
+        self.b = 0
+        self.a = 1
+
 
     #Changes a stateRep object Blue
-    def redraw_white_initial(s, *args):
-        print "Redraw method has been activated, changing to white"
-        s.canvas.clear()
-        with s.canvas:
-            Color(s.r, 1, 1, 1)
-            Ellipse(pos = (9,9), size = (30,30))
-        s.add_widget(Label(text="ID:" + str(s.stateName),padding_x=(20), padding_y=(25),halign="right",valign="top"))
-        s.add_widget((Label(text=str("[color=000000]I[/color]"),markup =True)))
-        #changes a stateRep object Red
+    def redraw_green_initial(self, *args):
+        print "Redraw method has been activated, changing to green"
+        self.r = 0
+        self.g = 1
+        self.b = 0
+        self.a = 1
 
-    def redraw_highlight(s, *args):
-        print "Redraw method has been activated, changing to red"
-        s.canvas.clear()
-        with s.canvas:
-            Color(s.r, 0, 1, 1)
-            Ellipse(pos = (9,9), size = (30,30))
-        s.add_widget(Label(text="ID:" + str(s.stateName),padding_x=(20), padding_y=(25),halign="right",valign="top"))
+
+    def redraw_highlight(self, *args):
+        print "Redraw method has been activated, changing to yellow"
+        self.r = 0
+        self.g = 1
+        self.b = 1
+        self.a = 1
 
     #this method calls the redraw method above... Not working as we wanted yet.
     def change_color_please(self,color):
         if color == "red":
             self.redraw_red_accepting(self)
-        elif color == "white":
-            self.redraw_white_initial(self)
+        elif color == "green":
+            self.redraw_green_initial(self)
         elif color == "highlight":
             self.redraw_red_highlight(self)
-
 
     def change_r(self, change):
         self.r = change
@@ -181,6 +178,59 @@ class StateRep(DraggableWidget):
         print self.move
         print self.newState
         print self.write
+
+class Transition1(DraggableWidget):
+    key = 0
+    x1 = NumericProperty(0)
+    y1 = NumericProperty(0)
+    t_label = StringProperty('')
+    r = NumericProperty(1)
+    g = NumericProperty(1)
+    b = NumericProperty(1)
+    a = NumericProperty(1)
+    state = ObjectProperty()
+
+    def __init__(self, p1, transInfo, key, **kwargs):
+        # self.x1 = p1[0]
+        # self.y1 = p1[1]
+        self.state = p1
+        self.t_label = str(transInfo[0]) + '/' + str(transInfo[1]) + '/' + str(transInfo[3])
+        self.key = key
+        super(Transition1, self).__init__(**kwargs)
+
+    def update_label(self, transInfo):
+        self.t_label = self.t_label + '\n\n\n' + str(transInfo[0]) + '/' + str(transInfo[1]) + '/' + str(transInfo[3])
+
+    def update_pos(self, p1):
+        self.x1 = p1[0]
+        self.y1 = p1[1]
+
+class Transition2(DraggableWidget):
+    key = 0
+    x1 = NumericProperty(0)
+    y1 = NumericProperty(0)
+    x2 = NumericProperty(0)
+    y2 = NumericProperty(0)
+    t_label = StringProperty('')
+    r = NumericProperty(1)
+    g = NumericProperty(1)
+    b = NumericProperty(1)
+    a = NumericProperty(1)
+    state1 = ObjectProperty()
+    state2 = ObjectProperty()
+
+    def __init__(self, p1, p2, transInfo, key, **kwargs):
+        self.state1 = p1
+        self.state2 = p2
+        self.t_label = str(transInfo[0]) + '/' + str(transInfo[1]) + '/' + str(transInfo[3])
+        self.key = key
+        super(Transition2, self).__init__(**kwargs)
+
+    #this does some weird shit adds new label in twice
+    def update_label(self, transInfo):
+        copy = self.t_label
+        self.t_label = copy + '/n' + str(transInfo[0]) + '/' + str(transInfo[1]) + '/' + str(transInfo[3])
+
 
 class MovePopup(Popup):
     move = ''

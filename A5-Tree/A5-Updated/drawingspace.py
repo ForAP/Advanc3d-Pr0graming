@@ -2,10 +2,10 @@
 import kivy
 kivy.require('1.7.0')
 from kivy.uix.relativelayout import RelativeLayout
-from toolbox import Transition
+from turingwidgets import Transition1, Transition2
 
 class DrawingSpace(RelativeLayout):
-    def on_children(self):
-        if isinstance(self.children[0], Transition):
-            move = self.children.pop([0])
+    def on_children(self, instance, value):
+        if isinstance(self.children[0], Transition1) or isinstance(self.children[0], Transition2):
+            move = self.children.pop(0)
             self.children.append(move)

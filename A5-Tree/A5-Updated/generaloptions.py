@@ -32,7 +32,7 @@ class GeneralOptions(BoxLayout):
 
         #check is valid
         if self.check_id_valid_for_accessing_ds(id,ds) == True:
-            ds.children[-id-self.transition].change_color_please("white")
+            ds.children[-id-self.transitionCounter].change_color_please("green")
     ##This method will change the color of states, it uses negative indices.  Just pass it the ID of the state that you
     # want changes and it will display it as a final/accepting state!
     def change_state_color_to_final(self,stateId):
@@ -70,11 +70,11 @@ class GeneralOptions(BoxLayout):
         #Here are a few methods that I whacked together. Just have a look. They are only activated when a new touch is called
         #You can change the trigger or at least we should. (The base methods are in the turingwidgets.py class. but these can
         #be called from anywhere
-        self.change_state_color_to_final(3)
-        self.change_state_color_to_initial(0)
-        #There is also a highlight method in turingWidgets.py but I haven't implemented one for generaloptions yet.
-        self.get_state_rep_location(1)
-        print self.get_state_rep_location(4)
+        # self.change_state_color_to_final(3)
+        # self.change_state_color_to_initial(0)
+        # #There is also a highlight method in turingWidgets.py but I haven't implemented one for generaloptions yet.
+        # self.get_state_rep_location(1)
+        # print self.get_state_rep_location(4)
         #Also still need to be able to change the states back after we change the color etc... just need to edit the color in the code..
 
 
@@ -133,8 +133,10 @@ class GeneralOptions(BoxLayout):
         if counter == 4:
             print "Here we have to actually add the transitions"
             # self.tm.states[current_state_name]
+            self.parent.tool_box.tool_transition.draw_transition(current_state_name, self.transInfo, self.transitionCounter)
             self.tm.states[current_state_name].add_transition(self.transInfo[0],self.transInfo[1],self.transInfo[2],self.transInfo[3])
             self.transInfo = []
+            self.transitionCounter += 1
 
             print "NOW PRINTING THE LIST"
 
@@ -212,6 +214,7 @@ class GeneralOptions(BoxLayout):
         self.nameCounter = 0
         self.transInfo = []
         self.updateTM()
+        self.transitionCounter = 0
         # p = AlphabetPopup()
         # p.open()
 
@@ -220,7 +223,8 @@ class GeneralOptions(BoxLayout):
             child.unselect()
 
     def on_translation(self,instance,value):
-        for child in self.drawing_space.children:
+        dsc = self.drawing_space.children
+        for child in dsc:
             if child.selected:
                 child.translate(*self.translation)
 
@@ -276,6 +280,4 @@ class AlphabetPopup(Popup):
         self.alphabet = alphabet.lower()
 
 class TransitionPopup(Popup):
-
-
     pass
