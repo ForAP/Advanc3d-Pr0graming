@@ -66,6 +66,8 @@ class GeneralOptions(BoxLayout):
         self.tm.addstate(str(self.nameCounter), state)
         self.nameCounter += 1
 
+        print "HELLO"
+
         ##TODO Remove below line THESE ARE FOR TESTING PURPOSES [ SEE HERE DAVE ]
         #Here are a few methods that I whacked together. Just have a look. They are only activated when a new touch is called
         #You can change the trigger or at least we should. (The base methods are in the turingwidgets.py class. but these can
