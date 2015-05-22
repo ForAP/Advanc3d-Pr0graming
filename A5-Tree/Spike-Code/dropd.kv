@@ -1,13 +1,32 @@
 
 <HomeScreen>:
     id: home_screen
-    top_layout: topLayoutID
+    top_layout: load_ID
     #notes_dropdown: notesDropDownID
 
     orientation: 'vertical'
 
     BoxLayout:
-        id: topLayoutID
+        id: load_ID
         #cols: 1
-        size_hint: 0.3, .05
-        pos_hint: {'x': 0.7, 'y': .95}
+        size_hint: 0.35, .09
+        pos_hint: {'x': 0.65, 'y': .91}
+
+        Button:
+            #id: notesDropDownID
+            size_hint_x: 0.3
+            id: btn_ddID
+            text: 'Save TM'
+            on_release: root.save_file(*args)
+
+
+<SavePopup>:
+    id: _save_popup
+    size_hint: .5, .5
+    auto_dismiss: False
+    title: 'Please enter the name of the Turing Machine:'
+    TextInput:
+        id: user_input_save
+        multiline: False
+        on_text_validate: root.grabInputFromTape(user_input_save.text), root.dismiss()
+        on_focus: user_input_save.background_color=[0.8,1,1,1]

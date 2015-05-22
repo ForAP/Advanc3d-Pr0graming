@@ -5,11 +5,15 @@ from kivy.app import App
 from kivy.uix.screenmanager import Screen
 from kivy.uix.button import Button
 from kivy.uix.dropdown import DropDown
+from kivy.uix.popup import Popup
 import glob
 import os
 
 class HomeScreen(Screen):
 
+
+
+    # THIS INIT CREATES AND POPULATES THE DROP DOWN
     def __init__(self, *args, **kwargs):
         super(HomeScreen, self).__init__(*args, **kwargs)
 
@@ -19,6 +23,13 @@ class HomeScreen(Screen):
         turingMachines = []
         for file in glob.glob("*.xml"):
             turingMachines.append(str(file))
+
+        #Check that there is a file to load, if not display "No saved Files"
+        if len(turingMachines) == 0:
+            # the size_hint_y) so the dropdown can calculate the area it needs.
+            btn = Button(text="No Saved Files", size_hint_y=None, height=30)
+            # then add the button inside the dropdown
+            dropdown.add_widget(btn)
 
         for tms in turingMachines:
             # when adding widgets, we need to specify the height manually (disabling
@@ -54,9 +65,35 @@ class HomeScreen(Screen):
 
         self.top_layout.add_widget(mainbutton)
 
+    #This is a test method to show you how to call the selected name
     def printMeth(self,b):
         print "yo\n\n ()()()()() YOU CAN CALL THE tm.parseTuring(%s) Here " % b
 
+
+    def save_file(self, instance):
+        p = SavePopup()
+        p.bind(on_dismiss=self.save_callback)
+        p.open()
+
+    def save_callback(self, instance):
+        fileName = instance.getInfo()
+        # strip out the spaces
+        fileName = fileName.replace(" ", "")
+        # add the .xml on the end
+        fileName = fileName + ".xml"
+        print "We need to call the save xml method here and name is %s" % str(fileName)
+
+class SavePopup(Popup):
+    fileName = '.xml'
+    def getInfo(self):
+        return self.fileName
+
+    def grabInputFromTape(self, fileName):
+        #Test the user input for irregular input
+        # strip out the spaces
+        fileName.replace(" ", "")
+        # eliminate all duplicate characters
+        self.fileName = fileName
 
 
 class dropdApp(App):
