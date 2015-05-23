@@ -5,6 +5,7 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.popup import Popup
 from kivy.properties import NumericProperty, ListProperty
 from turingmachine import TuringMachine
+import saveOrLoadTuring
 import time
 
 class GeneralOptions(BoxLayout):
@@ -60,7 +61,9 @@ class GeneralOptions(BoxLayout):
         ds = self.drawing_space
         #check is valid
         if self.check_id_valid_for_accessing_ds(id,ds) == True:
-            return (ds.children[-id].get_local())
+            final = (ds.children[-id].get_local())
+            final.append(stateId)
+            return final
 
     def add_state(self, state):
         self.tm.addstate(str(self.nameCounter), state)
@@ -74,9 +77,16 @@ class GeneralOptions(BoxLayout):
         # self.change_state_color_to_final(3)
         # self.change_state_color_to_initial(0)
         # #There is also a highlight method in turingWidgets.py but I haven't implemented one for generaloptions yet.
-        #self.get_state_rep_location(1)
-        print self.get_state_rep_location(4)
+        # print self.get_state_rep_location(1)
+        # print self.get_state_rep_location(4)
         #Also still need to be able to change the states back after we change the color etc... just need to edit the color in the code..
+
+
+
+    ####DAVE THIS IS THE METHOD THAT WILL CALL THE SAVing
+    def call_saving(self):
+        if self.nameCounter > 2:
+            saveIt = saveOrLoadTuring.Saver(self.tm,self.drawing_space,self.nameCounter).create_xml("work.xml")
 
 
 
@@ -124,6 +134,7 @@ class GeneralOptions(BoxLayout):
 
     def set_alphabet(self,alphabet):
         self.tm.set_alphabet_in_TM(alphabet)
+
 
     def set_tape(self,tape):
         self.tm.set_tape_in_TM(tape)

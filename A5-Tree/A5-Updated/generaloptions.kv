@@ -6,7 +6,8 @@
     padding: 2
     Button:
         text: 'Set Initial Tape'
-        on_press: root.set_initialtape(*args)
+        #on_press: root.set_initialtape(*args)
+        on_press: root.call_saving()
     Button:
         text: 'Run TM'
         on_press: root.run_tm(*args)
