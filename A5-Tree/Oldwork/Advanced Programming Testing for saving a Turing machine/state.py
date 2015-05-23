@@ -38,6 +38,7 @@ class State:
             return self.transitions[seensym]
         else:
             return None
+
     def get_all_transition(self):
         ''' Get the appropriate transition to follow when you see seensym
 

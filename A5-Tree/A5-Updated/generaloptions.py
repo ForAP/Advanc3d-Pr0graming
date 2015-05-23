@@ -66,7 +66,6 @@ class GeneralOptions(BoxLayout):
         self.tm.addstate(str(self.nameCounter), state)
         self.nameCounter += 1
 
-        print "HELLO"
 
         ##TODO Remove below line THESE ARE FOR TESTING PURPOSES [ SEE HERE DAVE ]
         #Here are a few methods that I whacked together. Just have a look. They are only activated when a new touch is called
@@ -75,8 +74,8 @@ class GeneralOptions(BoxLayout):
         # self.change_state_color_to_final(3)
         # self.change_state_color_to_initial(0)
         # #There is also a highlight method in turingWidgets.py but I haven't implemented one for generaloptions yet.
-        # self.get_state_rep_location(1)
-        # print self.get_state_rep_location(4)
+        #self.get_state_rep_location(1)
+        print self.get_state_rep_location(4)
         #Also still need to be able to change the states back after we change the color etc... just need to edit the color in the code..
 
 

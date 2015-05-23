@@ -22,7 +22,7 @@ class State:
             newstate (char): the name of the state to transition to
             move (char): the direction to move ("L" or "R")
         '''
-        transition=Transition(writesym, newstate, move)
+        transition=Transition(seensym,writesym, newstate, move)
         self.transitions[seensym] = transition
 
     def get_transition(self, seensym):
@@ -38,3 +38,14 @@ class State:
             return self.transitions[seensym]
         else:
             return None
+    def get_all_transition(self):
+        ''' Get the appropriate transition to follow when you see seensym
+
+        Args:
+            seensym (char): the symbol we have seen
+
+        Returns:
+            the appropriate transition, or None if no transition defined
+        '''
+
+        return self.transitions

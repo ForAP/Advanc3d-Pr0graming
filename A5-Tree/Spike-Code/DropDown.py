@@ -10,44 +10,91 @@ import glob
 import os
 import xml.etree.cElementTree as ET
 
+###########FOR TESTING DUE TO REMOVE############
+import turingmachine
+from turingmachine import parseTuringMachine
+
+
+
 class topBar(Screen):
 
 
+
     ##This method will build a turing machine based on the current TM
-    #### NEEDS THE turing machine object and the ds.children attributes
+    #### NEEDS THE turing machine object and the ds.children attributes to be added
     def create_xml(self,name):
+
+        ###############TESTING################## TODO - Remove the below line
+        turingmachine = parseTuringMachine("../SavedTMs/flipper.xml")
+
         #create the root and name it turingmachine
         root = ET.Element("turingmachine")
         #add alphebet as a subelement
         alphabet = ET.SubElement(root, "alphabet")
         #add an attribute to the alphabet
-        alphabet.text = "01b"
-        #add as a subelement
+        alphabet.text = str(turingmachine.alphabet)
+
+
+        #add as a subelement (remove the tape head from the tape to avoid crashing when loaded
         initialtape = ET.SubElement(root, "initialtape")
-        initialtape.text = "00001111"
+        initialtape.text = str(turingmachine.gettape().replace("*", ""))
+
+
+        #### WILL MANUALLY SET (Blank char will always be 'b'
         blank = ET.SubElement(root, "blank")
         blank.set('char', 'b')
+
         initialstate = ET.SubElement(root, "initialstate")
-        initialstate.set("name","0")
+        initialstate.set("name",str(turingmachine.initialstate))
 
         finalstates = ET.SubElement(root, "finalstates")
 
-        #Will need a for loop here ----
-        finalstate = ET.SubElement(finalstates,"finalstate")
-        finalstate.set("name","halt")
+        #Will need a for loop here ---- Done!
+        for x in turingmachine.finalstates:
+            finalstate = ET.SubElement(finalstates,"finalstate")
+            finalstate.set("name",str(x))
 
         states = ET.SubElement(root, "states")
 
-        #Will need a for loop here ----
-        state = ET.SubElement(states, "state")
-        state.set("name","0")
+        #Will need a for loop here ---- Done!
+        for x in turingmachine.states:
+            state = ET.SubElement(states, "state")
+            state.set("name",str(x))
 
-        #Will need a Nested for loop here ----
-        transition= ET.SubElement(state, "transition")
-        transition.set("seensym","1")
-        transition.set("writesym", "1")
-        transition.set("newstate", "1")
-        transition.set("move", "R")
+            #Will need a Nested for loop here ---- Done!
+            for y in turingmachine.states.get(x).get_all_transition():
+                transition= ET.SubElement(state, "transition")
+                transition.set("move", turingmachine.states.get(x).get_all_transition()[y].get_next_direction())
+                transition.set("newstate", turingmachine.states.get(x).get_all_transition()[y].get_next_state())
+                transition.set("writesym", turingmachine.states.get(x).get_all_transition()[y].get_write_sym())
+                transition.set("seensym",turingmachine.states.get(x).get_all_transition()[y].get_seen_sym())
+
+
+
+
+
+
+        myList = [[0,1],[2,4],[3,6]]
+        drawingSpace = ET.SubElement(root, "ds.children")
+        for x in myList:
+            state_coordinates = ET.SubElement(drawingSpace, "state_coordinates")
+            state_coordinates.set("ID", "need to get")
+            state_coordinates.set("x", str(x[0]))
+            state_coordinates.set("y", str(x[1]))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         tree = ET.ElementTree(root)

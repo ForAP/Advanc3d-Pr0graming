@@ -7,7 +7,7 @@ Author:
 class Transition:
     '''Represents a transition in a Turing machine'''
     
-    def __init__(self, writesym, newstate, direction):
+    def __init__(self, seensym, writesym, newstate, direction):
         '''Define a new transition
 
         Args:
@@ -18,6 +18,14 @@ class Transition:
         self.writesym = writesym
         self.newstate = newstate
         self.direction = direction
+        self.seensym = seensym
+
+    def get_seen_sym(self):
+        '''Getter for the symbol to write
+        Returns:
+            The symbol to write on the tape
+        '''
+        return self.seensym
 
     def get_write_sym(self):
         '''Getter for the symbol to write
