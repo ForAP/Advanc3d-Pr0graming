@@ -10,12 +10,12 @@ import xml.etree.cElementTree as ET
             3) the name counter from generaloptions.py"""
 
 class Saver():
-
-
-    def __init__(self, TM, drawing_space,nameCounter):
-        self.TM = TM
+    def __init__(self, general_options, drawing_space, toolbox):
+        self.TM = general_options.tm
         self.drawing_space = drawing_space
-        self.nameCounter = nameCounter
+        self.nameCounter = general_options.nameCounter
+        self.transitionCounter = general_options.transitionCounter
+        self.toolbox = toolbox
 
      ##This method will build a turing machine based on the current TM
     #### NEEDS THE turing machine object and the ds.children attributes
@@ -45,6 +45,7 @@ class Saver():
 
         finalstates = ET.SubElement(root, "finalstates")
 
+
         #Will need a for loop here ---- Done!
         for x in turingmachine.finalstates:
             finalstate = ET.SubElement(finalstates,"finalstate")
@@ -65,12 +66,6 @@ class Saver():
                 transition.set("writesym", turingmachine.states.get(x).get_all_transition()[y].get_write_sym())
                 transition.set("seensym",turingmachine.states.get(x).get_all_transition()[y].get_seen_sym())
 
-
-
-
-
-
-
         #### NOW ADD IN THE COORDINATES AND NAMES OF EACH STATE UNDER ds.children tag
 
         drawingSpace = ET.SubElement(root, "ds.children")
@@ -80,22 +75,15 @@ class Saver():
             state_coordinates.set("x", str(x[0]))
             state_coordinates.set("y", str(x[1]))
 
+        addedTransitions = ET.SubElement(root, "transitions")
+        addedTransitions.set('list', self.toolbox.tool_transition.transitions)
+
+        counters = ET.SubElement(root, "counters")
+        counters.set("state", self.nameCounter)
+        counters.set("transitions", self.transitionCounter)
 
         # parse to a tree and export to an xml file
-        tree = ET.ElementTree(root)
-        tree.write(open(r"./SavedTMs/%s" % name,'w'))
-
-
-    def load_turing_machine(self,fileName):
-        #parse the TM to a useable turing machine object
-        turingMachine = self.TM.parseturing(fileName)
-
-        #TODO ---- implement a parser that can get the DS children information
-
-        # return turing machine object
-        return turingMachine
-
-
+        ET.ElementTree(root).write(open(r"./SavedTMs/%s" % name,'w'))
     #this method returns a list of length 3 [x coord, y coord, ID number of state]
     def get_state_rep_location(self,stateName,object):
 

@@ -1,21 +1,18 @@
-
-<topBar>:
+#:import topbox topbox
+<TopBox>:
     id: home_screen
-    top_layout: load_ID
     #notes_dropdown: notesDropDownID
     orientation: 'vertical'
+    padding: 2
     BoxLayout:
-        id: load_ID
-        #cols: 1
-        size_hint: 0.35, .09
-        pos_hint: {'x': 0.65, 'y': .91}
+        # size_hint: 1, 1
+        # pos_hint: {'x': 0.65, 'y': .91}
         Button:
             #id: notesDropDownID
-            size_hint_x: 0.3
+            size_hint: 1, 1
             id: btn_ddID
             text: 'Save TM'
             on_release: root.save_file(*args)
-
 
 <SavePopup>:
     id: _save_popup

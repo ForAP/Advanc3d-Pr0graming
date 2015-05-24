@@ -81,16 +81,7 @@ class GeneralOptions(BoxLayout):
         # print self.get_state_rep_location(4)
         #Also still need to be able to change the states back after we change the color etc... just need to edit the color in the code..
 
-
-
-    ####DAVE THIS IS THE METHOD THAT WILL CALL THE SAVing
-    def call_saving(self):
-        if self.nameCounter > 2:
-            saveIt = saveOrLoadTuring.Saver(self.tm,self.drawing_space,self.nameCounter).create_xml("work.xml")
-
-
-
-    def run_tm(self, instance):
+    def run_tm(self):
         '''Run the machine to completion.  Prints an execution trace
         Returns:
             nothing

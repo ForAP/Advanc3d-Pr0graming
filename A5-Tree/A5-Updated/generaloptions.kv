@@ -6,8 +6,7 @@
     padding: 2
     Button:
         text: 'Set Initial Tape'
-        #on_press: root.set_initialtape(*args)
-        on_press: root.call_saving()
+        on_press: root.set_initialtape(*args)
     Button:
         text: 'Run TM'
         on_press: root.run_tm(*args)
@@ -17,12 +16,9 @@
     ToggleButton:
         text: 'Set Final States'
         on_state: root.set_finalstates(*args)
-    # Button:
-    #     text: 'Add Transition'
-    #     on_press: root.transitions(True)
     Button:
         text: 'Clear TM'
-        on_press: root.newTM(*args)
+        on_press: root.newTM()
     Button:
         text: 'Remove State'
         on_release: root.remove(*args)
