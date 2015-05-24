@@ -9,3 +9,8 @@ class DrawingSpace(RelativeLayout):
         if isinstance(self.children[0], Transition1) or isinstance(self.children[0], Transition2):
             move = self.children.pop(0)
             self.children.append(move)
+
+    def delete_transitions(self):
+        for child in self.children:
+            if isinstance(child, Transition1) or isinstance(child, Transition2):
+                self.remove_widget(child)

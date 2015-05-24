@@ -5,8 +5,11 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.popup import Popup
 from kivy.properties import NumericProperty, ListProperty
 from turingmachine import TuringMachine
+from turingwidgets import StateRep, DraggableWidget, Transition1, Transition2
 import saveOrLoadTuring
 import time
+import xml.etree.cElementTree as ET
+from state import State
 
 class GeneralOptions(BoxLayout):
     set_state = False
@@ -20,66 +23,63 @@ class GeneralOptions(BoxLayout):
     blank = 'b'
     tm = TuringMachine(alphabet, initialstate, initialtape, finalstates, blank)
     nameCounter = 0
-    transInfo = []
     transitionCounter = 0
+    transitions = {}
+    keyNum = 0
+    transInfo = []
 
     ##This method will change the color of states, it uses negative indices.  Just pass it the ID of the state that you
     # want changes and it will display it as a start/initial state!
     def change_state_color_to_initial(self,stateId):
         #increment the state ID for accessing list purposes
-        id = stateId + 1
+        colour_id = stateId + 1 + self.transitionCounter
         #define ds to equal the drawing space
         ds = self.drawing_space
-
         #check is valid
-        if self.check_id_valid_for_accessing_ds(id,ds) == True:
-            ds.children[-id-self.transitionCounter].change_color_please("green")
+        if self.check_id_valid_for_accessing_ds(colour_id,ds) == True:
+            if not self.initialstate:
+                self.initialstate = colour_id
+                ds.children[-colour_id].change_color_please("green")
+            else:
+                ds.children[-self.initialstate].change_color_please("white")
+                ds.children[-colour_id].change_color_please("green")
+                self.initialstate = colour_id
     ##This method will change the color of states, it uses negative indices.  Just pass it the ID of the state that you
     # want changes and it will display it as a final/accepting state!
     def change_state_color_to_final(self,stateId):
         #increment the state ID for accessing list purposes
-        id = stateId + 1
+        colour_id = stateId + 1 + self.transitionCounter
         #define ds to equal the drawing space
         ds = self.drawing_space
 
         #check is valid
-        if self.check_id_valid_for_accessing_ds(id,ds) == True:
-            ds.children[-id].change_color_please("red")
+        if self.check_id_valid_for_accessing_ds(colour_id,ds) == True:
+            ds.children[-colour_id].change_color_please("red")
+
     ##Checks that the state ID that was passed in is a valid ID and it is actually part of the list. If not no action
     # will be taken
-    def check_id_valid_for_accessing_ds(self,id,ds):
+    def check_id_valid_for_accessing_ds(self,colour_id,ds):
         #checks the length and makes sure that the requested state exists
-        if len(ds.children) > 0 and id <= len(ds.children):
+        if len(ds.children) > 0 and colour_id <= len(ds.children)-self.transitionCounter:
             return True
         else:
             return False
 
     def get_state_rep_location(self,stateId):
         #increment the state ID for accessing list purposes
-        id = stateId + 1
+        colour_id = stateId + self.transitionCounter + 1
         #define ds to equal the drawing space
         ds = self.drawing_space
         #check is valid
-        if self.check_id_valid_for_accessing_ds(id,ds) == True:
-            final = (ds.children[-id].get_local())
+        if self.check_id_valid_for_accessing_ds(colour_id,ds) == True:
+            final = (ds.children[-colour_id].get_local())
             final.append(stateId)
             return final
 
-    def add_state(self, state):
+    def add_state(self):
+        state = State()
         self.tm.addstate(str(self.nameCounter), state)
         self.nameCounter += 1
-
-
-        ##TODO Remove below line THESE ARE FOR TESTING PURPOSES [ SEE HERE DAVE ]
-        #Here are a few methods that I whacked together. Just have a look. They are only activated when a new touch is called
-        #You can change the trigger or at least we should. (The base methods are in the turingwidgets.py class. but these can
-        #be called from anywhere
-        # self.change_state_color_to_final(3)
-        # self.change_state_color_to_initial(0)
-        # #There is also a highlight method in turingWidgets.py but I haven't implemented one for generaloptions yet.
-        # print self.get_state_rep_location(1)
-        # print self.get_state_rep_location(4)
-        #Also still need to be able to change the states back after we change the color etc... just need to edit the color in the code..
 
     def run_tm(self):
         '''Run the machine to completion.  Prints an execution trace
@@ -134,25 +134,14 @@ class GeneralOptions(BoxLayout):
     def collect_trans_info(self,value,counter,current_state_name):
         self.transInfo.append(value)
         if counter == 4:
-            print "Here we have to actually add the transitions"
-            # self.tm.states[current_state_name]
             self.parent.tool_box.tool_transition.draw_transition(current_state_name, self.transInfo, self.transitionCounter)
             self.tm.states[current_state_name].add_transition(self.transInfo[0],self.transInfo[1],self.transInfo[2],self.transInfo[3])
             self.transInfo = []
-            self.transitionCounter += 1
-
-            print "NOW PRINTING THE LIST"
-
-            for x in self.transInfo:
-                print x
-            #add_transition(self, seensym, writesym, newstate, move)
-
 
     #This class removes the last State to be made (Pops it if you think like a stack data structure)
     def remove(self, instance):
         ds = self.drawing_space
         if len(ds.children) > 0:
-            print ds.children[0].stateName
             self.tm.removestate(str(ds.children[0].stateName))
             ds.remove_widget(ds.children[0])
             self.nameCounter -= 1
@@ -206,20 +195,31 @@ class GeneralOptions(BoxLayout):
         return False
 
 
-    def newTM(self, instance):
+    def newTM(self):
+        """
+        Resets the TM in general_options
+        Args:
+            None
+        Returns:
+            None
+        """
         #TODO WE need to check the user's input (No spaces or what ever)
+        #TODO I've ran into a Kivy bug on clear_widgets()
+        # Exception IndexError: 'list index out of range' in 'kivy.properties.observable_list_dispatch' ignored
+        # Has something to do with the transitions existing after the state has been deleted
         self.alphabet = ''
         self.initialstate = ''
         self.initialtape = ''
         self.finalstates = set()
         self.blank = 'b'
-        self.drawing_space.clear_widgets()
         self.nameCounter = 0
         self.transInfo = []
         self.updateTM()
         self.transitionCounter = 0
-        # p = AlphabetPopup()
-        # p.open()
+        self.transitions = {}
+        self.keyNum = 0
+        self.drawing_space.delete_transitions()
+        self.drawing_space.clear_widgets()
 
     def unselect_all(self):
         for child in self.drawing_space.children:
@@ -238,6 +238,84 @@ class GeneralOptions(BoxLayout):
         print self.alphabet
         print self.tm.states
         print self.tm.gettape()
+
+    def parseTuringMachine(self, infile):
+        '''Parses a Turing machine from an XML file
+
+        Args:
+            infile(str): name of an XML input file
+        Returns:
+            A TuringMachine
+        '''
+        ep = ET.parse(infile)
+        tm = ep.getroot()
+
+        # self.alphabet = tm.find("alphabet").text
+        # self.initialtape = tm.find("initialtape").text
+        # self.blank = tm.find("blank").attrib['char']
+        self.initialstate = tm.find("initialstate").attrib['name']
+
+        self.finalstates=set()
+        fs=tm.findall("finalstates/finalstate")
+        for state in fs:
+            self.finalstates.add(state.attrib['name'])
+
+        self.tm = TuringMachine(self.alphabet, self.initialstate, self.initialtape, self.finalstates, self.blank)
+
+        states = tm.findall("states/state")
+
+        for state in states:
+            statename = state.attrib['name']
+            stateobj = State()
+            transitions = state.findall("transition")
+            for transition in transitions:
+                stateobj.add_transition(transition.attrib['seensym'],
+                                        transition.attrib['writesym'],
+                                        transition.attrib['newstate'],
+                                        transition.attrib['move'])
+            self.tm.addstate(statename, stateobj)
+
+        self.draw(infile)
+
+    def draw(self, filename):
+        """
+        Draws the states and transitions from an XML file
+        Args:
+            filename(str): name of an XML input file
+        Returns:
+            Nothing
+        """
+        ds = self.drawing_space
+        ep = ET.parse(filename)
+        tm = ep.getroot()
+        transInfo = []
+
+        states = tm.findall("states/state")
+        print states
+
+        # adding state objects first because they are used as location references for transitions
+        for x in xrange(0,len(states)):
+            sm = StateRep(width=48, height=48)
+            coordinates = tm.findall("./ds_children/state_coordinates[@ID='%s']" % str(x))
+            (x,y) = (float(coordinates[0].attrib['x']), float( coordinates[0].attrib['y']))
+            sm.center = (x,y)
+            ds.add_widget(sm)
+            ds.children[0].set_state(self.nameCounter)
+            self.nameCounter += 1
+
+        # now adding transition
+        for state in states:
+            statename = state.attrib['name']
+            transitions = state.findall("transition")
+            for transition in transitions:
+                transInfo.append(transition.attrib['seensym'])
+                transInfo.append(transition.attrib['writesym'])
+                transInfo.append(transition.attrib['newstate'])
+                transInfo.append(transition.attrib['move'])
+                self.parent.tool_box.tool_transition.draw_transition(statename, transInfo, self.transitionCounter)
+                transInfo = []
+                # self.transitionCounter += 1
+
 
 class TapePopup(Popup):
     initialtape = ''

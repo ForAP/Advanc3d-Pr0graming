@@ -41,7 +41,7 @@ class TopBox(BoxLayout):
             # for each button, attach a callback that will call the select() method
             # on the dropdown. We'll pass the text of the button as the data of the
             # selection.
-            btn.bind(on_release=lambda btn: self.load_turing_machine(btn.text))
+            btn.bind(on_release=lambda btn: dropdown.select(btn.text))
 
             # then add the button inside the dropdown
             dropdown.add_widget(btn)
@@ -63,7 +63,7 @@ class TopBox(BoxLayout):
         #dropdown.bind(on_select=lambda instance, x: setattr(mainbutton, 'text', x))
 
         # USE THE BELOW CODE TO CALL METHODS FROM THIS CLASS
-        dropdown.bind(on_select=lambda instance, x: self.printMeth(getattr(x,'text',x)))
+        dropdown.bind(on_select=lambda instance, x: self.load_turing_machine(getattr(x,'text',x)))
 
 
         self.add_widget(mainbutton)
@@ -121,20 +121,17 @@ class TopBox(BoxLayout):
 
         # USE THE BELOW CODE TO CALL METHODS FROM THIS CLASS
         # Commented out as there is no need for a second binding as the __init__ already did it!
-        #dropdown.bind(on_select=lambda instance, x: self.printMeth(getattr(x,'text',x)))
+        # dropdown.bind(on_select=lambda instance, x: self.load_turing_machine(getattr(x,'text',x)))
+        #
 
 
         self.add_widget(mainbutton)
 
-    #This is a test method to show you how to call the selected name
-    def printMeth(self,b):
-        print "yo\n\n ()()()()() YOU CAN CALL THE tm.parseTuring(%s) Here " % b
-
     def load_turing_machine(self, filename):
         #TODO ---- implement
-        go = self.parent.general_options
+        go = self.general_options
         go.newTM()
-        go.tm.parseturing(filename)
+        go.parseTuringMachine(filename)
 
 
     #calls the pop up to be triggered

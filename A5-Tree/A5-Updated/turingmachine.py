@@ -5,7 +5,7 @@ Author:
 '''
 
 
-import xml.etree.ElementTree as ET
+import xml.etree.cElementTree as ET
 import sys
 
 from transition import Transition
@@ -120,45 +120,6 @@ class TuringMachine:
 
         return True
 
-def parseTuringMachine(infile):
-    '''Parses a Turing machine from an XML file
-
-    Args:
-        infile(str): name of an XML input file
-    Returns:
-        A TuringMachine
-    '''
-    ep = ET.parse(infile)
-    tm = ep.getroot()
-  #  tm = etree.find('turingmachine')
-
-    alpha=tm.find("alphabet").text
-    tape=tm.find("initialtape").text
-    blank=tm.find("blank").attrib['char']
-    initialstate=tm.find("initialstate").attrib['name']
-
-    finalstates=set()
-    fs=tm.findall("finalstates/finalstate")
-    for state in fs:
-        finalstates.add(state.attrib['name'])
-
-    tmobj = TuringMachine(alpha,initialstate, tape, finalstates, blank)
-
-    states = tm.findall("states/state")
-
-    for state in states:
-        statename = state.attrib['name']
-        stateobj = State()
-        transitions = state.findall("transition")
-        for transition in transitions:
-            stateobj.add_transition(transition.attrib['seensym'],
-                                    transition.attrib['writesym'],
-                                    transition.attrib['newstate'],
-                                    transition.attrib['move'])
-        tmobj.addstate(statename, stateobj)
-
-
-    return tmobj
 
 def run_turing(filename):
     '''Loads and runs a Turing Machine As required by Assignment 1 spec

@@ -68,22 +68,21 @@ class Saver():
 
         #### NOW ADD IN THE COORDINATES AND NAMES OF EACH STATE UNDER ds.children tag
 
-        drawingSpace = ET.SubElement(root, "ds.children")
+        drawingSpace = ET.SubElement(root, "ds_children")
         for x in self.make_list_of_state_coordinates():
             state_coordinates = ET.SubElement(drawingSpace, "state_coordinates")
             state_coordinates.set("ID", str(x[2]))
             state_coordinates.set("x", str(x[0]))
             state_coordinates.set("y", str(x[1]))
 
-        addedTransitions = ET.SubElement(root, "transitions")
-        addedTransitions.set('list', self.toolbox.tool_transition.transitions)
-
         counters = ET.SubElement(root, "counters")
-        counters.set("state", self.nameCounter)
-        counters.set("transitions", self.transitionCounter)
+        counters.set("state", str(self.nameCounter))
+        counters.set("transitions", str(self.transitionCounter))
 
         # parse to a tree and export to an xml file
-        ET.ElementTree(root).write(open(r"./SavedTMs/%s" % name,'w'))
+        tree = ET.ElementTree(root)
+        tree.write(open(name,'w'))
+
     #this method returns a list of length 3 [x coord, y coord, ID number of state]
     def get_state_rep_location(self,stateName,object):
 
@@ -94,9 +93,6 @@ class Saver():
         final = (object.get_local())
         final.append(stateName)
         return final
-
-
-
 
     #this method returns a list of lists that are of length 3 [x coord, y coord, ID number of state]
     def make_list_of_state_coordinates(self):

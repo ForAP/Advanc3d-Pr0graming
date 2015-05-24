@@ -16,12 +16,12 @@ Builder.load_file('InstructionScreen.kv')
 Builder.load_file('homescreen.kv')
 Builder.load_file('topbox.kv')
 
-class TuringScreenManager(ScreenManager):
+class Main(ScreenManager):
     pass
 
-class TuringScreenManagerApp(App):
+class MainApp(App):
     def build(self):
-        return TuringScreenManager()
+        return Main()
 
 if __name__=="__main__":
-    TuringScreenManagerApp().run()
+    MainApp().run()

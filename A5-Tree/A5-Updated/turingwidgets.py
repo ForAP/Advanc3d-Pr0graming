@@ -17,8 +17,8 @@ class DraggableWidget(RelativeLayout):
         self.touched = False
         super(DraggableWidget, self).__init__(**kwargs)
 
-    def set_state(self):
-        self.stateName = self.parent.general_options.nameCounter - 1
+    def set_state(self, stateName):
+        self.stateName = stateName
         print self.stateName
 
     def on_touch_down(self, touch):
@@ -101,11 +101,11 @@ class DraggableWidget(RelativeLayout):
         self.touched = False
         if self.selected:
             if self.parent.general_options.set_state:
-                # self.parent.general_options.initialstate = self.stateName
+                self.parent.general_options.change_state_color_to_initial(self.stateName)
                 self.parent.general_options.tm.set_initialstate(self.stateName)
                 print "New Initial State is: " + str(self.parent.general_options.tm.initialstate)
             if self.parent.general_options.final_states:
-                # self.parent.general_options.finalstates.add(self.stateName)
+                self.parent.general_options.change_state_color_to_final(self.stateName)
                 self.parent.general_options.tm.set_finalstates(self.stateName)
                 print "The final states are: " + str(self.parent.general_options.tm.finalstates)
             self.unselect()
@@ -140,7 +140,7 @@ class StateRep(DraggableWidget):
         self.a = 1
 
 
-    #Changes a stateRep object Blue
+    #Changes a stateRep object Green
     def redraw_green_initial(self, *args):
         print "Redraw method has been activated, changing to green"
         self.r = 0
@@ -148,10 +148,17 @@ class StateRep(DraggableWidget):
         self.b = 0
         self.a = 1
 
-
+    #Changes a stateRep object Yellow
     def redraw_highlight(self, *args):
         print "Redraw method has been activated, changing to yellow"
         self.r = 0
+        self.g = 1
+        self.b = 1
+        self.a = 1
+
+    #Changes a stateRep object White
+    def redraw_white_default(self, *args):
+        self.r = 1
         self.g = 1
         self.b = 1
         self.a = 1
@@ -164,6 +171,8 @@ class StateRep(DraggableWidget):
             self.redraw_green_initial(self)
         elif color == "highlight":
             self.redraw_red_highlight(self)
+        elif color == "white":
+            self.redraw_white_default(self)
 
     def change_r(self, change):
         self.r = change
@@ -194,12 +203,14 @@ class Transition1(DraggableWidget):
         # self.x1 = p1[0]
         # self.y1 = p1[1]
         self.state = p1
-        self.t_label = str(transInfo[0]) + '/' + str(transInfo[1]) + '/' + str(transInfo[3])
+        self.t_label = 'To:' + str(transInfo[2]) + '--' + str(transInfo[0]) + '/' + str(transInfo[1]) + '/' + str(transInfo[3])
         self.key = key
         super(Transition1, self).__init__(**kwargs)
 
     def update_label(self, transInfo):
-        self.t_label = self.t_label + '\n\n\n' + str(transInfo[0]) + '/' + str(transInfo[1]) + '/' + str(transInfo[3])
+        newStr = 'To:' + str(transInfo[2]) + '--' + str(transInfo[0]) + '/' + str(transInfo[1]) + '/' + str(transInfo[3])
+        seq = [self.t_label, newStr]
+        self.t_label = "\n".join(seq)
 
     def update_pos(self, p1):
         self.x1 = p1[0]
@@ -222,14 +233,15 @@ class Transition2(DraggableWidget):
     def __init__(self, p1, p2, transInfo, key, **kwargs):
         self.state1 = p1
         self.state2 = p2
-        self.t_label = str(transInfo[0]) + '/' + str(transInfo[1]) + '/' + str(transInfo[3])
+        self.t_label = 'To:' + str(transInfo[2]) + '--' + str(transInfo[0]) + '/' + str(transInfo[1]) + '/' + str(transInfo[3])
         self.key = key
         super(Transition2, self).__init__(**kwargs)
 
     #this does some weird shit adds new label in twice
     def update_label(self, transInfo):
-        copy = self.t_label
-        self.t_label = copy + '/n' + str(transInfo[0]) + '/' + str(transInfo[1]) + '/' + str(transInfo[3])
+        seq = []
+        seq = [self.t_label, '\n', 'To:', str(transInfo[2]), '--', str(transInfo[0]), '/', str(transInfo[1]), '/', str(transInfo[3])]
+        self.t_label = ''.join(seq)
 
 
 class MovePopup(Popup):
