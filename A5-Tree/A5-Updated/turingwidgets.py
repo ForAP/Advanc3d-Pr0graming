@@ -239,9 +239,9 @@ class Transition2(DraggableWidget):
 
     #this does some weird shit adds new label in twice
     def update_label(self, transInfo):
-        seq = []
-        seq = [self.t_label, '\n', 'To:', str(transInfo[2]), '--', str(transInfo[0]), '/', str(transInfo[1]), '/', str(transInfo[3])]
-        self.t_label = ''.join(seq)
+        newStr = 'To:' + str(transInfo[2]) + '--' + str(transInfo[0]) + '/' + str(transInfo[1]) + '/' + str(transInfo[3])
+        seq = [self.t_label, newStr]
+        self.t_label = "\n".join(seq)
 
 
 class MovePopup(Popup):
